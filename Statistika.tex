@@ -31,6 +31,7 @@
 \newenvironment{dokaz}[1][{\sc Dokaz}]{\begin{proof}[#1]\renewcommand*{\qedsymbol}{\(\blacksquare\)}}{\end{proof}}
 
 \newcommand{\Mod}[1]{\hbox{ (mod } #1)}
+\renewcommand\labelenumi{(\theenumi)}
 
 \begin{document}
 	
@@ -41,7 +42,7 @@
 		\end{Large}
 		
 	\end{center}
-	Hvala ker bereš.
+	Minimalni katalog znanja, ki ga bom sproti dopolnjeval. Verjetno bom izpustil kakšen dokaz in pa kakšen zgled.
 	\vfill
 	\begin{center}
 		Ljubljana, 2017 $\quad \quad $ Gregor Vavdi
@@ -49,5 +50,75 @@
 	\newpage
 	\setcounter{page}{1}
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Verjetnost%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-\end{document}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Uvod%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Motivacija}
+	Kako bi "ocenili" verjetnost, da pri metu kovanca pade cifra?
+	\\
+	Izvedemo $n$ neodvisnih "enakih" (v istih razmerah, na enak način, pošteno oz.naključno) metov kovanca in iskano verjetnost ocenimo z razmerjem $\frac{\textnormal{število cifer}}{n}$.
+	\\
+	\\
+	Igramo igro, kjer kroglico položimo v eno od treh škatel. Zmešamo škatle med seboj in poskušamo uganiti kje je kroglica. Če uganemo dobimo $10$, v nasprotnem primeru pa izgubimo $6$.
+	\\
+	\\
+	Kako bi ocenili pričakovano vrednost te igre?
+	\\
+	Izvedemo $n$ neodvisnih slučajnih iger in pričakovano vrednost ene igre ocenimo z $\frac{\textnormal{skupni izkupiček}}{n}$.
+	\\
+	\\
+	Zdi se nam, da mora z večjim vzorcem priti boljša ocena.
+	\\
+	\\
+	V 18. stoletju je grof Buffon kovanec vrgel 4040-krat in dobil 2048 cifer. Ocenjena verjetnost cifre je $0.50689$.
+	\\
+	V 19. stoletju je Pason vrgel kovanec 12000-krat in dobil 6019 cifer. Ocenjena vrejetnost je $0.5016$.
+	\\
+	\\
+	Aksiome verjetnosti zgradimo tako, da so naša mnenja glede vprašanj upravičena.
+	
+	\section{Konvergenca slučajnih spremenljivk in limitni izrek}
+	\begin{Definicija}
+		Naj bo $X_1,X_2,X_3,\ldots $ slučajne spremenljivke, definirane na skupnem prostoru $\Omega$.
+		\begin{enumerate}
+			\item
+			Pravimo, da zaporedje $\{X_n\}_n$ konvergira k $X$ v porazdelitvi, če $$\lim\limits_{n \to \infty}{P(X_n \le x)} = P(X\le x)$$
+			za vsa tista realna števila $x$, v katerih je komulativna porazdelitvena funkcija slučajne spremenljivke $X$ zvezna.
+			\item
+			Pravimo, da je $\{X_n\}_n$ konvergira k $X$ v verjetnosti, če velja:
+			$$\lim\limits_{n \to \infty}{|X_n - X|>\varepsilon} = 0$$
+			za vsak $\varepsilon > 0$.
+			\item
+			Pravimo, da $\{X_n\}_n$ k $X$ skoraj gotovo, če je:
+			$$P(\{\omega \in \Omega | \exists \lim\limits_{n \to \infty}{X_n(\omega) = X(\omega)}\}) = 1$$	
+		\end{enumerate}
+	\end{Definicija}
+	\begin{Trditev}
+		Iz konvergence "skoraj gotovo" sledi konvergenca v verjetnosti.
+	\end{Trditev}
+	\begin{Trditev}
+		(Neenakost Markova)
+		\\
+		Naj bo $X$ slučajna spremenljivka s pričakovano vrednostjo in $a>0$ pozitivna konstanta. Tedaj je:
+		$$P(|X| \ge a) \le \frac{E[|X|]}{a}$$
+	\end{Trditev}
+	\begin{dokaz}
+		Naj bo $a>0$. Pišemo $A =  \{|X| \ge a\} = \{\omega |\quad |X(\omega)| \ge a  \}$. Tedaj $|X| \ge a \cdot \mathcal{U}_A$. Sledi $E[|X|] \ge a \cdot P(A)$.
+	\end{dokaz}
+	\begin{Posledica}
+		Naj bo $X$ slučajna spremenljivka s (končno) disperzijo. Tedaj velja
+		$$P(|X - EX]|\ge \varepsilon) \le \frac{D(X)}{\varepsilon ^2}$$
+		za vsako pozitivno število $\varepsilon$.
+	\end{Posledica}
+	\begin{dokaz}
+		$$P(|X- E[X]| \ge \varepsilon) = P( (|X - E[X]|)^2 \le \varepsilon ^2) < \frac{E((X - E[X])^2)}{\varepsilon ^2} = \frac{D(X)}{\varepsilon ^2}$$
+	\end{dokaz}
+	\begin{Izrek}
+	(Šibki zakon velikih števil)
+	\\
+	Naj bodo $X_1, X_2, \ldots \quad \Omega \to \mathbb{R}$ neodvisne in enako porazdeljene slučajne spremenljivke s pričakovano vrednostjo $\mu$ in (končnim) odklonom $\sigma$. Tedaj zaporedje "vzorčnih povprečij" $\frac{X_1,\ldots , X_n}{n}$ konvergira v verjetnosti h konstantni $\mu$.
+	\end{Izrek}
+	\begin{dokaz}
+		Trdimo, da velja $\lim\limits_{n \to \infty}{P(|\frac{X_1,X_2,\ldots , X_n}{n}} - \mu| \ge \varepsilon) = 0$ za vsak pozitiven $\varepsilon > 0$. Pišimo $\bar{X} = \frac{X_1,\ldots , X_n}{n}$.
+		$$P(|\bar{X} - \mu | > \varepsilon) \le P(|\bar{X} - \mu | \ge \varepsilon) \le \frac{D(\bar{X})}{\varepsilon ^2} = \frac{D(\frac{X_1,\ldots , X_n}{n})}{\varepsilon ^2} = \frac{1}{n^2 \varepsilon ^2}D(X_1) + \ldots + D(X_n) = \frac{\sigma ^2 }{n \varepsilon ^2}$$
+		Sledi, da rezultat konvergira proti $0$, ko gre $n$ v neskončnost.
+	\end{dokaz}
+	\end{document}
