@@ -77,17 +77,17 @@
 	
 	\section{Konvergenca slučajnih spremenljivk in limitni izrek}
 	\begin{Definicija}
-		Naj bo $X_1,X_2,X_3,\ldots $ slučajne spremenljivke, definirane na skupnem prostoru $\Omega$.
+		Naj bodo $X_1,X_2,X_3,\ldots $ slučajne spremenljivke, definirane na skupnem prostoru $\Omega$.
 		\begin{enumerate}
 			\item
 			Pravimo, da zaporedje $\{X_n\}_n$ konvergira k $X$ v porazdelitvi, če $$\lim\limits_{n \to \infty}{P(X_n \le x)} = P(X\le x)$$
 			za vsa tista realna števila $x$, v katerih je komulativna porazdelitvena funkcija slučajne spremenljivke $X$ zvezna.
 			\item
-			Pravimo, da je $\{X_n\}_n$ konvergira k $X$ v verjetnosti, če velja:
-			$$\lim\limits_{n \to \infty}{|X_n - X|>\varepsilon} = 0$$
+			Pravimo, da je $\{X_n\}_n$ konvergira k $X$ \textbf{v verjetnosti}, če velja:
+			$$\lim\limits_{n \to \infty}{P(|X_n - X|>\varepsilon)} = 0$$
 			za vsak $\varepsilon > 0$.
 			\item
-			Pravimo, da $\{X_n\}_n$ k $X$ skoraj gotovo, če je:
+			Pravimo, da $\{X_n\}_n$ k $X$ \textbf{skoraj gotovo}, če je:
 			$$P(\{\omega \in \Omega | \exists \lim\limits_{n \to \infty}{X_n(\omega) = X(\omega)}\}) = 1$$	
 		\end{enumerate}
 	\end{Definicija}
