@@ -83,16 +83,18 @@
 			Pravimo, da zaporedje $\{X_n\}_n$ konvergira k $X$ v porazdelitvi, če $$\lim\limits_{n \to \infty}{P(X_n \le x)} = P(X\le x)$$
 			za vsa tista realna števila $x$, v katerih je komulativna porazdelitvena funkcija slučajne spremenljivke $X$ zvezna.
 			\item
-			Pravimo, da je $\{X_n\}_n$ konvergira k $X$ \textbf{v verjetnosti}, če velja:
+			Pravimo, da zaporedje $\{X_n\}_n$ konvergira k $X$ \textbf{v verjetnosti}, če velja:
 			$$\lim\limits_{n \to \infty}{P(|X_n - X|>\varepsilon)} = 0$$
 			za vsak $\varepsilon > 0$.
 			\item
-			Pravimo, da $\{X_n\}_n$ k $X$ \textbf{skoraj gotovo}, če je:
+			Pravimo, da zaporedje $\{X_n\}_n$ konvergira k $X$ \textbf{skoraj gotovo}, če je:
 			$$P(\{\omega \in \Omega | \exists \lim\limits_{n \to \infty}{X_n(\omega) = X(\omega)}\}) = 1$$	
+			$$\iff$$
+			$$P(\lim_{n\to \infty}{Xn=X} )= 1$$
 		\end{enumerate}
 	\end{Definicija}
 	\begin{Trditev}
-		Iz konvergence "skoraj gotovo" sledi konvergenca v verjetnosti.
+		Iz konvergence 'skoraj gotovo' sledi konvergenca v verjetnosti.
 	\end{Trditev}
 	\begin{Trditev}
 		(Neenakost Markova)
@@ -104,21 +106,66 @@
 		Naj bo $a>0$. Pišemo $A =  \{|X| \ge a\} = \{\omega |\quad |X(\omega)| \ge a  \}$. Tedaj $|X| \ge a \cdot \mathcal{U}_A$. Sledi $E[|X|] \ge a \cdot P(A)$.
 	\end{dokaz}
 	\begin{Posledica}
+		(Neenakost Čebiševa)
+		\\
 		Naj bo $X$ slučajna spremenljivka s (končno) disperzijo. Tedaj velja
-		$$P(|X - EX]|\ge \varepsilon) \le \frac{D(X)}{\varepsilon ^2}$$
+		$$P(|X - E[X]|\ge \varepsilon) \le \frac{D(X)}{\varepsilon ^2}$$
 		za vsako pozitivno število $\varepsilon$.
 	\end{Posledica}
 	\begin{dokaz}
 		$$P(|X- E[X]| \ge \varepsilon) = P( (|X - E[X]|)^2 \le \varepsilon ^2) < \frac{E((X - E[X])^2)}{\varepsilon ^2} = \frac{D(X)}{\varepsilon ^2}$$
 	\end{dokaz}
-	\begin{Izrek}
+	\begin{Izrek}\label{izrek:SZVS}
 	(Šibki zakon velikih števil)
 	\\
-	Naj bodo $X_1, X_2, \ldots \quad \Omega \to \mathbb{R}$ neodvisne in enako porazdeljene slučajne spremenljivke s pričakovano vrednostjo $\mu$ in (končnim) odklonom $\sigma$. Tedaj zaporedje "vzorčnih povprečij" $\frac{X_1,\ldots , X_n}{n}$ konvergira v verjetnosti h konstantni $\mu$.
+	Naj bodo $X_1, X_2, \ldots \quad \Omega \to \mathbb{R}$ neodvisne in enako porazdeljene slučajne spremenljivke s pričakovano vrednostjo $\mu$ in (končnim) odklonom $\sigma$. Tedaj zaporedje "vzorčnih povprečij" 
+	$$\frac{X_1 + X_2 + \ldots + X_n}{n}$$
+	konvergira \textbf{v verjetnosti} h konstanti $\mu$.
 	\end{Izrek}
 	\begin{dokaz}
-		Trdimo, da velja $\lim\limits_{n \to \infty}{P(|\frac{X_1,X_2,\ldots , X_n}{n}} - \mu| \ge \varepsilon) = 0$ za vsak pozitiven $\varepsilon > 0$. Pišimo $\bar{X} = \frac{X_1,\ldots , X_n}{n}$.
-		$$P(|\bar{X} - \mu | > \varepsilon) \le P(|\bar{X} - \mu | \ge \varepsilon) \le \frac{D(\bar{X})}{\varepsilon ^2} = \frac{D(\frac{X_1,\ldots , X_n}{n})}{\varepsilon ^2} = \frac{1}{n^2 \varepsilon ^2}D(X_1) + \ldots + D(X_n) = \frac{\sigma ^2 }{n \varepsilon ^2}$$
+		Trdimo, da velja $\lim\limits_{n \to \infty}{P(|\frac{X_1+X_2+\ldots + X_n}{n}} - \mu| \ge \varepsilon) = 0$ za vsak pozitiven $\varepsilon > 0$. Pišimo $\bar{X} = \frac{X_1+\ldots + X_n}{n}$.
+		$$P(|\bar{X} - \mu | > \varepsilon) \le P(|\bar{X} - \mu | \ge \varepsilon) \le \frac{D(\bar{X})}{\varepsilon ^2} = \frac{D(\frac{X_1+ \ldots + X_n}{n})}{\varepsilon ^2} = \frac{1}{n^2 \varepsilon ^2}D(X_1) + \ldots + D(X_n) = \frac{\sigma ^2 }{n \varepsilon ^2}$$
 		Sledi, da rezultat konvergira proti $0$, ko gre $n$ v neskončnost.
 	\end{dokaz}
+	\begin{Opomba}
+		Verjetnost kateregakoli konkretnega neskončnega zaporedja cifer in grbov je 0, ne glede na to koliko je dejanska verjetnost posameznega meta $p\in (0,1)$.
+	\end{Opomba}
+	\begin{Opomba}
+		(Česa šibki zakon velikih števil ne trdi.)
+		\\
+		Denimo, da je $p = \frac{1}{2}$. Beležimo število cifer po $n$ poskusih. \textbf{Ne velja}, da je število cifer po n poskusih večje od števila grbov po 'približno polovici časa'.
+		\\
+		Zlahka namreč trdimo, da je število cifer ves čas večje od števila grbov.
+	\end{Opomba}
+	\begin{Izrek}\label{izrek:KZVS}
+		(Krepki zakon velikih števil)
+		\\
+		Naj bo $X_1, X_2, \ldots$ zaporedje neodvisnih in enako porazdeljenih slučajnih spremneljivk s končno pričakovano vrednostjo $E(X_i) \in \mathbb{R}$.
+		Tedaj je zaporedje "vzorčnih povprečij"
+		$$\frac{X_1 + X_2 + \ldots + X_n}{n}$$
+		konvergira k $E[X_i] =: \mu$ \textbf{skoraj gotovo}.
+	\end{Izrek}
+	\begin{Opomba}
+	Končna pričakovana vrednost pomeni $E[|X_i|] < \infty$
+	\end{Opomba}
+	\begin{Zgled}
+		Ponavljamo Bernulijev poskus z verjetnostjo enice p. Tedaj skoraj gotovo velja:
+		\begin{equation}\label{eq:zgled}
+		\lim_{n\to \infty}{\frac{\textnormal{št. enic v n poskusih}}{n}} = p
+		\end{equation}
+		To pomeni: verjetnost tistih neskončnih zaporedij $( \omega_1, \omega_2, \ldots )$ za katere \eqref{eq:zgled} velja, je $1$.
+	\end{Zgled}
+	\begin{Opomba}
+		Krepki zakon velikih števil je uzakonitev frekventistične definicije (intuicije) v verjetnosti.
+	\end{Opomba}
+	\begin{Opomba}
+		Iz izreka \ref{izrek:KZVS} sledi izrek \ref{izrek:SZVS}
+	\end{Opomba}
+	\subsection{Centralni limitni izrek}
+	\begin{Izrek}
+		Naj bodo $X_1, X_2, \ldots$ neodvisno enako porazedeljene Bernulijevke ($B(1,p)$). Tedaj zaporedje \textbf{standardiziranih povprečij}
+		\begin{equation}
+		\cfrac{\cfrac{X_1+X_2 + \ldots + X_n}{n} - p}{ \cfrac{\sqrt{p(1-p)}}{ \sqrt{n} } }  = \frac{\sqrt{n}}{\sqrt{p(1-p)}}$$
+		\end{equation}
+	\end{Izrek}
 	\end{document}
