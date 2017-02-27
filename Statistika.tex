@@ -164,8 +164,53 @@
 	\subsection{Centralni limitni izrek}
 	\begin{Izrek}
 		Naj bodo $X_1, X_2, \ldots$ neodvisno enako porazedeljene Bernulijevke ($B(1,p)$). Tedaj zaporedje \textbf{standardiziranih povprečij}
-		\begin{equation}
-		\cfrac{\cfrac{X_1+X_2 + \ldots + X_n}{n} - p}{ \cfrac{\sqrt{p(1-p)}}{ \sqrt{n} } }  = \frac{\sqrt{n}}{\sqrt{p(1-p)}}$$
-		\end{equation}
+		$$\cfrac{\cfrac{X_1+X_2 + \ldots + X_n}{n} - p}{ \cfrac{\sqrt{p(1-p)}}{ \sqrt{n} } }  =
+		 \frac{\sqrt{n}}{\sqrt{p(1-p)}} \left(  \cfrac{X_1+X_2 + \ldots + X_n}{n} - p \right)$$
+		konvergira k standardni normalni porazdelitvi. 
+		\\
+		\\
+		Z drugimi besedami: Če velja $Y_n \sim Bin(n,p)$ sledi:
+		$$\frac{\sqrt{n}}{\sqrt{p(1-p)}} \left(  \cfrac{Y_n}{n} - p \right) \xrightarrow[n\to \infty]{\textnormal{v porazdelitvi}} \mathcal{N}(0,1)$$
+		\end{Izrek}
+	\begin{Opomba}
+		Dokaz bomo izpustili.
+		\\
+		Za $p = \frac{1}{2}$ je dokazal leta 1733 De Maine.
+		\\
+		Za splošen p ga je dokazal Laplace.
+		\\
+		Uporabljamo ga za aproksimacijo binomskih porazdelitev za velike n z normalnimi porazdelitvami.
+		\\
+		Ohlapno lahko rečemo:
+		$$Bin(n,p)\sim \mathcal{N}(np,np(1-p))$$
+		za velike n-je.
+	\end{Opomba}
+	\begin{Izrek}\label{izrek:CTI}
+		(Centralni limitni izrek)
+		\\
+		Naj bodo $X_1, X_2, \ldots$ neodvisne, enako porazdeljene slučajne spremenljivke s končno disperzijo $\sigma^2$ in pričakovano vrednostjo $\mu$. Tedaj zaporedje standardiziranih vzorčnih povprečij:
+		$$\cfrac{\cfrac{X_1+X_2 + \ldots + X_n}{n} - \mu}{ \cfrac{\sigma}{ \sqrt{n} } } $$
+		konvergira k porazdelitvi $\mathcal{N}(0,1)$.
 	\end{Izrek}
+\begin{Opomba}
+	V statistiki izrek \ref{izrek:CTI} uporabljamo tipično v primerih, ko so $X_1, X_2, \ldots$ neodvisne replikacije preučevane slučajne spremenljivke X.
+\end{Opomba}
+\begin{Zgled}
+	\textnormal{Ljubljanske mlekarne proizvajajo litrsko plastenko jogurta Mu $3,2$. 'Jamčijo', da ima taka plastenka 'v povprečju' $32$g maščob. Privzamemo tudi, da Ljubljanske mlekarne 'jamčijo', da je odlklon vsebnosti maščob $1,5$g.}
+	\\
+	\begin{enumerate}
+		\item
+		Ali znamo izračunati (ali oceniti) $P(X\in (31g, 33g))$, če je $X$ zvezna spremenljivka, ki predstavlja maso maščob v slučajno izbrani plastenki?
+		\\
+		\\
+		\textnormal{V splošnem ne znamo odgovoriti, saj ne poznamo porazdelitve.}
+		\item
+		Naključno izberemo 100 takih plastenk in označimo $X_i$ maso maščob v i-ti plastenki. Ali znamo izračunati (ali oceniti)?
+		\\
+		\\
+		\textnormal{Lahko ocenimo s pomočjo izreka} \ref{izrek:CTI}. \textnormal{Praktične izkušnje kažejo, da je $n= 100$ že dovolj veliko}
+		\\
+		$$\bar{X} = \frac{X_1 + X_2 + \ldots + X_n}{100} \Rightarrow P\left(\frac{\bar{X} - 32}{\frac{3}{2\sqrt{100}}}\right)$$
+	\end{enumerate}
+\end{Zgled}
 	\end{document}
