@@ -210,7 +210,11 @@
 		\\
 		\textnormal{Lahko ocenimo s pomočjo izreka} \ref{izrek:CTI}. \textnormal{Praktične izkušnje kažejo, da je $n= 100$ že dovolj veliko}
 		\\
-		$$\bar{X} = \frac{X_1 + X_2 + \ldots + X_n}{100} \Rightarrow P\left(\frac{\bar{X} - 32}{\frac{3}{2\sqrt{100}}}\right)$$
+		$$\bar{X} = \frac{X_1 + X_2 + \ldots + X_n}{100} \Rightarrow P\left(\frac{\bar{X} - 32}{\frac{3}{2\sqrt{100}}} \in \left( \frac{31 -32}{\frac{3}{2\sqrt{100}}}, \frac{33 - 32}{\frac{3}{2\sqrt{100}}} \right)   \right) = \phi\left(\frac{20}{3}\right) \ - \;  \phi \left(\frac{-20}{3}\right) = 1 $$
+		\item
+		Kaj pa verjetnost $P(\bar{X} \in (31{,}9 ; 32{,}1))$? 
+		\\
+		$$ P(\bar{X} \in (31{,}9 ; 32{,}1)) = \phi\left(\frac{2}{3}\right) \ - \ \phi \left(\frac{-2}{3}\right) = 0,7486 - 0,2514 = 0,4972$$
 	\end{enumerate}
 \end{Zgled}
 	\end{document}
