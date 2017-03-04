@@ -128,20 +128,20 @@
 		Sledi, da rezultat konvergira proti $0$, ko gre $n$ v neskončnost.
 	\end{dokaz}
 	\begin{Opomba}
-		Verjetnost kateregakoli konkretnega neskončnega zaporedja cifer in grbov je 0, ne glede na to koliko je dejanska verjetnost posameznega meta $p\in (0,1)$.
+		Verjetnost kateregakoli konkretnega neskončnega zaporedja cifer in grbov je 0, ne glede na to, koliko je dejanska verjetnost posameznega meta $p\in (0,1)$.
 	\end{Opomba}
 	\begin{Opomba}
 		(Česa šibki zakon velikih števil ne trdi.)
 		\\
-		Denimo, da je $p = \frac{1}{2}$. Beležimo število cifer po $n$ poskusih. \textbf{Ne velja}, da je število cifer po n poskusih večje od števila grbov po 'približno polovici časa'.
+		Denimo, da je $p = \frac{1}{2}$. Beležimo število cifer po $n$ poskusih. \textbf{Ne velja}, da je število cifer po n poskusih večje od števila grbov 'približno polovici časa'.
 		\\
-		Zlahka namreč trdimo, da je število cifer ves čas večje od števila grbov.
+		Zlahka je število cifer ves čas večje od števila grbov.
 	\end{Opomba}
 	\begin{Izrek}\label{izrek:KZVS}
 		(Krepki zakon velikih števil)
 		\\
-		Naj bo $X_1, X_2, \ldots$ zaporedje neodvisnih in enako porazdeljenih slučajnih spremneljivk s končno pričakovano vrednostjo $E(X_i) \in \mathbb{R}$.
-		Tedaj je zaporedje "vzorčnih povprečij"
+		Naj bo $X_1, X_2, \ldots$ zaporedje neodvisnih in enako porazdeljenih slučajnih spremenljivk s končno pričakovano vrednostjo $E(X_i) \in \mathbb{R}$.
+		Tedaj zaporedje "vzorčnih povprečij"
 		$$\frac{X_1 + X_2 + \ldots + X_n}{n}$$
 		konvergira k $E[X_i] =: \mu$ \textbf{skoraj gotovo}.
 	\end{Izrek}
@@ -149,24 +149,24 @@
 	Končna pričakovana vrednost pomeni $E[|X_i|] < \infty$
 	\end{Opomba}
 	\begin{Zgled}
-		Ponavljamo Bernulijev poskus z verjetnostjo enice p. Tedaj skoraj gotovo velja:
+		Ponavljamo Bernoullijev poskus z verjetnostjo enice p. Tedaj skoraj gotovo velja:
 		\begin{equation}\label{eq:zgled}
 		\lim_{n\to \infty}{\frac{\textnormal{št. enic v n poskusih}}{n}} = p
 		\end{equation}
 		To pomeni: verjetnost tistih neskončnih zaporedij $( \omega_1, \omega_2, \ldots )$ za katere \eqref{eq:zgled} velja, je $1$.
 	\end{Zgled}
 	\begin{Opomba}
-		Krepki zakon velikih števil je uzakonitev frekventistične definicije (intuicije) v verjetnosti.
+		Krepki zakon velikih števil je uzakonitev frekvenistične definicije (intuicije) v verjetnosti.
 	\end{Opomba}
 	\begin{Opomba}
 		Iz izreka \ref{izrek:KZVS} sledi izrek \ref{izrek:SZVS}
 	\end{Opomba}
 	\subsection{Centralni limitni izrek}
 	\begin{Izrek}
-		Naj bodo $X_1, X_2, \ldots$ neodvisno enako porazedeljene Bernulijevke ($B(1,p)$). Tedaj zaporedje \textbf{standardiziranih povprečij}
+		Naj bodo $X_1, X_2, \ldots$ neodvisno enako porazedeljene Bernoullijevke ($B(1,p)$). Tedaj zaporedje \textbf{standardiziranih povprečij}
 		$$\cfrac{\cfrac{X_1+X_2 + \ldots + X_n}{n} - p}{ \cfrac{\sqrt{p(1-p)}}{ \sqrt{n} } }  =
 		 \frac{\sqrt{n}}{\sqrt{p(1-p)}} \left(  \cfrac{X_1+X_2 + \ldots + X_n}{n} - p \right)$$
-		konvergira k standardni normalni porazdelitvi. 
+		konvergira k standardni normalni porazdelitvi v porazdelitvi. 
 		\\
 		\\
 		Z drugimi besedami: Če velja $Y_n \sim Bin(n,p)$ sledi:
@@ -175,7 +175,7 @@
 	\begin{Opomba}
 		Dokaz bomo izpustili.
 		\\
-		Za $p = \frac{1}{2}$ je dokazal leta 1733 De Maine.
+		Za $p = \frac{1}{2}$ je dokazal leta 1733 De Moivre.
 		\\
 		Za splošen p ga je dokazal Laplace.
 		\\
@@ -190,7 +190,7 @@
 		\\
 		Naj bodo $X_1, X_2, \ldots$ neodvisne, enako porazdeljene slučajne spremenljivke s končno disperzijo $\sigma^2$ in pričakovano vrednostjo $\mu$. Tedaj zaporedje standardiziranih vzorčnih povprečij:
 		$$\cfrac{\cfrac{X_1+X_2 + \ldots + X_n}{n} - \mu}{ \cfrac{\sigma}{ \sqrt{n} } } $$
-		konvergira k porazdelitvi $\mathcal{N}(0,1)$.
+		konvergira v porazdelitvi k $\mathcal{N}(0,1)$.
 	\end{Izrek}
 \begin{Opomba}
 	V statistiki izrek \ref{izrek:CTI} uporabljamo tipično v primerih, ko so $X_1, X_2, \ldots$ neodvisne replikacije preučevane slučajne spremenljivke X.
