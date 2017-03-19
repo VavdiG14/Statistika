@@ -217,4 +217,68 @@
 		$$ P(\bar{X} \in (31{,}9 ; 32{,}1)) = \phi\left(\frac{2}{3}\right) \ - \ \phi \left(\frac{-2}{3}\right) = 0,7486 - 0,2514 = 0,4972$$
 	\end{enumerate}
 \end{Zgled}
+\section{Deskriptivna statistika}
+	Deskriptivna (opisna) statistika poskuša povzeti oziroma predstaviti značilnosti danega nabora podatkov, ki ga razumemo kot populacija. Beseda 'statistika' v naslovu pomeni, število o katerem predpostavljamo značilnost, ki nas zanima. Formalneje je statistika funkcija, ki nabor podatkov priredi smiselno število s katerim povzamemo določeno lastnost.
+\subsection{Osnovne opisne statistike}
+\subsubsection{Kvantili}
+\subsubsection{Aritmetična sredina}
+\begin{Definicija}
+	Naj bodo $X_1, \ldots ,X_N$ številske spremenljivke. Aritmetična sredina je:
+	$$\frac{1}{N}\sum_{i = 1}^{N}X_i = \frac{1}{N}\sum_{j = 1}^{N}{f_j \cdot x_j} = \frac{f_1 \cdot x_1 + \ldots + f_N\cdot x_N}{f_1 + \ldots + f_N}$$
+\end{Definicija}
+\begin{Opomba}
+	Zadnja enakost zgoraj je ravno $E[X]$, če na množici $\{1,2,3,\ldots, N \}$ vzamemo \textbf{enakomerno} verjetnost pri kateri je $P(X = x_j) = \frac{f_j}{N}$.
+\end{Opomba}
+\subsubsection{Modus}
+\begin{Definicija}
+	Modus je vrednost z največjo frekvenco, če obstaja. Če je taka ena sama, govorimo o \textbf{unimodalni} porazdelitvi. (tipično za unimodalnost zahtevamo še kaj več)
+\end{Definicija}
+\begin{Opomba}
+	Modus ima bistveno večji pomen pri zveznih porazdelitvah oz. številskih spremenljivkah, pri katerih so načeloma možne vse vrednosti iz nekega intervala. Pri zveznih porazdelitvah bi za unimodalnost zahtevali en lokalni maksimum porazdelitvene gostote pri splošnješih pa en geometrijsko definiran prevoj komulativne porazdelitvene funkcije F.
+\end{Opomba}
+\subsubsection{Razmiki}
+\begin{Definicija}
+	\textbf{Variacijski razmik} je razlika med maksimalno in minimalno vrednostjo, pri katerih maksimalno razumemo kot zadnjo vrednost v ranžirni vrsti, minimalno pa kot prvo vrednost v ranžirni vrsti.
+	$$ X_{max} - X_{min} = X_N - X_1$$
+\end{Definicija}
+\begin{Opomba}
+	Pomankljivost: občutljivost na ekstremne vrednosti.
+\end{Opomba}
+	\textbf{Interkvartilni razmik} : $Q_{\frac{3}{4}} - Q_{\frac{1}{4}}$
+	\\
+	\\
+	\textbf{Seminterkvartilni razmik} : $\cfrac{Q_{\frac{3}{4}} - Q_{\frac{1}{4}}}{2}$
+\subsubsection{Odstopanje od srednjih vrednosti}
+\subsubitem{Povprečni absolutni odklon od aritmetične sredine}
+	$$\frac{1}{N}\sum_{i = 1}^{N}{|X_i - \bar{X}|} = \frac{1}{N}\sum_{j = 1}^{r}{|f_j \cdot x_j - \bar{X}|}$$
+\subsubitem{Povprečni absolutni odklon od mediane}	
+	$$\frac{1}{N}\sum_{i = 1}^{N}{|X_i - Me|} = \frac{1}{N}\sum_{j = 1}^{r}{|f_j \cdot x_j - Me|}$$
+\subsubitem{Povprečno kvadratno odstopanje}
+	$$\frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})^2} = D(X) = Var(X)$$
+\subsubitem{Standardni odklon}
+	$$\sqrt{\frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})^2}} = \frac{1}{\sqrt{N}}||(X_1, \ldots ,X_N) - (\bar{X},\ldots ,\bar{X}) || $$
+\begin{Opomba}
+	Evklidska razdalja med $(X_1, \ldots , X_N) $  in njegovo pravokotno projekcijo na premico $\{ t \cdot (1,1, \ldots, 1) | t\in \mathbb{R} \}$
+\end{Opomba}	
+
+Kvadratni odklon je ugoden za računanje (tako praktično in teoretično), ker je ustrezna razdalja porojena z skalarnim produktom.
+\begin{Trditev}
+	Naj bo $\sigma_1$ povprečni absolutni odklon in $\sigma_2 = \sigma$ standardni odklon. Potem velja:
+	$$\sigma_1 \le \sigma \le  \sqrt{N} \cdot \sigma_1$$
+\end{Trditev}
+\begin{dokaz}
+	Ocena $\sigma \le  \sqrt{N} \cdot \sigma_1$ sledi iz neenakosti $a_1^2 +\ldots + a_N^2 \le (a_1 + \ldots + a_N)^2$ za pozitivna števila $a_i = |X_i - \bar{X}| \quad i= 1,2,\ldots,N$
+	\\
+	Ocena $\sigma_1 \le \sigma$ je posledica Cauchy-Schwarzova neenakost. Naj bo $u = (a_1, \ldots, a_N) \quad   a_i = |X_i - \bar{X}|$ in $v= (1,\ldots, 1) \in \mathbb{R}^N$. Iz neenakosti sledi: $|<u,v>| \le||u|| \cdot ||v||$.
+\end{dokaz}
+
+\subsubsection{Povezanost dveh  številskih spremenljivk}
+\begin{Definicija}
+	Naj bosta $X_1, X_2, \ldots, X_N$ in $Y_1,Y_2,\ldots, Y_N$ številski spremenljivki, ki sta definirani na istem naboru podatkov oziroma populaciji. Kovarianca je:
+	$$Cov(X,Y) = \frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})\cdot (Y_i - \bar{Y})} = \frac{1}{N}\sum_{i = 1}^{N}{x_i \cdot y_i} - \left(\frac{1}{N}  \sum_{i = 1}^{N}{x_i}\right)\left( \frac{1}{N}\sum_{i = 1}^{N}{y_i}\right)$$
+	
+	Kot mera za jakost linearne povezanosti je kovarianca odvisna od variance posameznih spremenljivk. 'Pravo' (relativno) mero dobimo z normiranjem:
+	$$\varphi(X,Y) = \frac{\cfrac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})\cdot (Y_i - \bar{Y})} }{\sigma_X - \sigma_Y}$$
+	To je t.i. Pearsonov korelacijski koeficient. Iz Cauchy-Schwarzove neenakosti sledi $|\varphi(X,Y)| \le 1$.
+\end{Definicija}
 	\end{document}
