@@ -218,9 +218,12 @@
 	\end{enumerate}
 \end{Zgled}
 \section{Deskriptivna statistika}
-	Deskriptivna (opisna) statistika poskuša povzeti oziroma predstaviti značilnosti danega nabora podatkov, ki ga razumemo kot populacija. Beseda 'statistika' v naslovu pomeni, število o katerem predpostavljamo značilnost, ki nas zanima. Formalneje je statistika funkcija, ki nabor podatkov priredi smiselno število s katerim povzamemo določeno lastnost.
+	Deskriptivna (opisna) statistika poskuša povzeti oziroma predstaviti značilnosti danega nabora podatkov, ki ga razumemo kot populacijo. Beseda 'statistika' v naslovu pomeni število, o katerem predpostavljamo značilnost, ki nas zanima. Formalneje je statistika funkcija, ki naboru podatkov priredi smiselno število, s katerim povzamemo določeno lastnost.
 \subsection{Osnovne opisne statistike}
 \subsubsection{Kvantili}
+\begin{Opomba}
+Te poznamo že od prej.
+\end{Opomba}
 \subsubsection{Aritmetična sredina}
 \begin{Definicija}
 	Naj bodo $X_1, \ldots ,X_N$ številske spremenljivke. Aritmetična sredina je:
@@ -234,12 +237,12 @@
 	Modus je vrednost z največjo frekvenco, če obstaja. Če je taka ena sama, govorimo o \textbf{unimodalni} porazdelitvi. (tipično za unimodalnost zahtevamo še kaj več)
 \end{Definicija}
 \begin{Opomba}
-	Modus ima bistveno večji pomen pri zveznih porazdelitvah oz. številskih spremenljivkah, pri katerih so načeloma možne vse vrednosti iz nekega intervala. Pri zveznih porazdelitvah bi za unimodalnost zahtevali en lokalni maksimum porazdelitvene gostote pri splošnješih pa en geometrijsko definiran prevoj komulativne porazdelitvene funkcije F.
+	Modus ima bistveno večji pomen pri zveznih porazdelitvah oz. številskih spremenljivkah, pri katerih so načeloma možne vse vrednosti iz nekega intervala. Pri zveznih porazdelitvah bi za unimodalnost zahtevali en lokalni maksimum porazdelitvene gostote, pri splošnješih pa en geometrijsko definiran prevoj komulativne porazdelitvene funkcije F.
 \end{Opomba}
 \subsubsection{Razmiki}
 \begin{Definicija}
 	\textbf{Variacijski razmik} je razlika med maksimalno in minimalno vrednostjo, pri katerih maksimalno razumemo kot zadnjo vrednost v ranžirni vrsti, minimalno pa kot prvo vrednost v ranžirni vrsti.
-	$$ X_{max} - X_{min} = X_N - X_1$$
+	$$ X_{max} - X_{min} = X_(N) - X_(1)$$
 \end{Definicija}
 \begin{Opomba}
 	Pomankljivost: občutljivost na ekstremne vrednosti.
@@ -253,7 +256,7 @@
 	$$\frac{1}{N}\sum_{i = 1}^{N}{|X_i - \bar{X}|} = \frac{1}{N}\sum_{j = 1}^{r}{|f_j \cdot x_j - \bar{X}|}$$
 \subsubitem{Povprečni absolutni odklon od mediane}	
 	$$\frac{1}{N}\sum_{i = 1}^{N}{|X_i - Me|} = \frac{1}{N}\sum_{j = 1}^{r}{|f_j \cdot x_j - Me|}$$
-\subsubitem{Povprečno kvadratno odstopanje}
+\subsubitem{Povprečno kvadratno odstopanje od aritmetične sredine}
 	$$\frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})^2} = D(X) = Var(X)$$
 \subsubitem{Standardni odklon}
 	$$\sqrt{\frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})^2}} = \frac{1}{\sqrt{N}}||(X_1, \ldots ,X_N) - (\bar{X},\ldots ,\bar{X}) || $$
@@ -269,7 +272,7 @@ Kvadratni odklon je ugoden za računanje (tako praktično in teoretično), ker j
 \begin{dokaz}
 	Ocena $\sigma \le  \sqrt{N} \cdot \sigma_1$ sledi iz neenakosti $a_1^2 +\ldots + a_N^2 \le (a_1 + \ldots + a_N)^2$ za pozitivna števila $a_i = |X_i - \bar{X}| \quad i= 1,2,\ldots,N$
 	\\
-	Ocena $\sigma_1 \le \sigma$ je posledica Cauchy-Schwarzova neenakost. Naj bo $u = (a_1, \ldots, a_N) \quad   a_i = |X_i - \bar{X}|$ in $v= (1,\ldots, 1) \in \mathbb{R}^N$. Iz neenakosti sledi: $|<u,v>| \le||u|| \cdot ||v||$.
+	Ocena $\sigma_1 \le \sigma$ je posledica Cauchy-Schwarzeve neenakosti. Naj bo $u = (a_1, \ldots, a_N) \quad   a_i = |X_i - \bar{X}|$ in $v= (1,\ldots, 1) \in \mathbb{R}^N$. Iz neenakosti sledi: $|<u,v>| \le||u|| \cdot ||v||$.
 \end{dokaz}
 
 \subsubsection{Povezanost dveh  številskih spremenljivk}
