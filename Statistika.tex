@@ -219,12 +219,11 @@
 \end{Zgled}
 \section{Deskriptivna statistika}
 	Deskriptivna (opisna) statistika poskuša povzeti oziroma predstaviti značilnosti danega nabora podatkov, ki ga razumemo kot populacijo. Beseda 'statistika' v naslovu pomeni število, o katerem predpostavljamo značilnost, ki nas zanima. Formalneje je statistika funkcija, ki naboru podatkov priredi smiselno število, s katerim povzamemo določeno lastnost.
-\subsection{Osnovne opisne statistike}
-\subsubsection{Kvantili}
+\subsection{Kvantili}
 \begin{Opomba}
 Te poznamo že od prej.
 \end{Opomba}
-\subsubsection{Aritmetična sredina}
+\subsection{Aritmetična sredina}
 \begin{Definicija}
 	Naj bodo $X_1, \ldots ,X_N$ številske spremenljivke. Aritmetična sredina je:
 	$$\frac{1}{N}\sum_{i = 1}^{N}X_i = \frac{1}{N}\sum_{j = 1}^{N}{f_j \cdot x_j} = \frac{f_1 \cdot x_1 + \ldots + f_N\cdot x_N}{f_1 + \ldots + f_N}$$
@@ -232,14 +231,14 @@ Te poznamo že od prej.
 \begin{Opomba}
 	Zadnja enakost zgoraj je ravno $E[X]$, če na množici $\{1,2,3,\ldots, N \}$ vzamemo \textbf{enakomerno} verjetnost pri kateri je $P(X = x_j) = \frac{f_j}{N}$.
 \end{Opomba}
-\subsubsection{Modus}
+\subsection{Modus}
 \begin{Definicija}
 	Modus je vrednost z največjo frekvenco, če obstaja. Če je taka ena sama, govorimo o \textbf{unimodalni} porazdelitvi. (tipično za unimodalnost zahtevamo še kaj več)
 \end{Definicija}
 \begin{Opomba}
 	Modus ima bistveno večji pomen pri zveznih porazdelitvah oz. številskih spremenljivkah, pri katerih so načeloma možne vse vrednosti iz nekega intervala. Pri zveznih porazdelitvah bi za unimodalnost zahtevali en lokalni maksimum porazdelitvene gostote, pri splošnješih pa en geometrijsko definiran prevoj komulativne porazdelitvene funkcije F.
 \end{Opomba}
-\subsubsection{Razmiki}
+\subsection{Razmiki}
 \begin{Definicija}
 	\textbf{Variacijski razmik} je razlika med maksimalno in minimalno vrednostjo, pri katerih maksimalno razumemo kot zadnjo vrednost v ranžirni vrsti, minimalno pa kot prvo vrednost v ranžirni vrsti.
 	$$ X_{max} - X_{min} = X_(N) - X_(1)$$
@@ -251,14 +250,14 @@ Te poznamo že od prej.
 	\\
 	\\
 	\textbf{Seminterkvartilni razmik} : $\cfrac{Q_{\frac{3}{4}} - Q_{\frac{1}{4}}}{2}$
-\subsubsection{Odstopanje od srednjih vrednosti}
-\subsubitem{Povprečni absolutni odklon od aritmetične sredine}
+\subsection{Odstopanje od srednjih vrednosti}
+\subitem{Povprečni absolutni odklon od aritmetične sredine}
 	$$\frac{1}{N}\sum_{i = 1}^{N}{|X_i - \bar{X}|} = \frac{1}{N}\sum_{j = 1}^{r}{|f_j \cdot x_j - \bar{X}|}$$
-\subsubitem{Povprečni absolutni odklon od mediane}	
+\subitem{Povprečni absolutni odklon od mediane}	
 	$$\frac{1}{N}\sum_{i = 1}^{N}{|X_i - Me|} = \frac{1}{N}\sum_{j = 1}^{r}{|f_j \cdot x_j - Me|}$$
-\subsubitem{Povprečno kvadratno odstopanje od aritmetične sredine}
+\subitem{Povprečno kvadratno odstopanje od aritmetične sredine}
 	$$\frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})^2} = D(X) = Var(X)$$
-\subsubitem{Standardni odklon}
+\subitem{Standardni odklon}
 	$$\sqrt{\frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})^2}} = \frac{1}{\sqrt{N}}||(X_1, \ldots ,X_N) - (\bar{X},\ldots ,\bar{X}) || $$
 \begin{Opomba}
 	Evklidska razdalja med $(X_1, \ldots , X_N) $  in njegovo pravokotno projekcijo na premico $\{ t \cdot (1,1, \ldots, 1) | t\in \mathbb{R} \}$
@@ -275,7 +274,7 @@ Kvadratni odklon je ugoden za računanje (tako praktično in teoretično), ker j
 	Ocena $\sigma_1 \le \sigma$ je posledica Cauchy-Schwarzeve neenakosti. Naj bo $u = (a_1, \ldots, a_N) \quad   a_i = |X_i - \bar{X}|$ in $v= (1,\ldots, 1) \in \mathbb{R}^N$. Iz neenakosti sledi: $|<u,v>| \le||u|| \cdot ||v||$.
 \end{dokaz}
 
-\subsubsection{Povezanost dveh  številskih spremenljivk}
+\subsection{Povezanost dveh  številskih spremenljivk}
 \begin{Definicija}
 	Naj bosta $X_1, X_2, \ldots, X_N$ in $Y_1,Y_2,\ldots, Y_N$ številski spremenljivki, ki sta definirani na istem naboru podatkov oziroma populaciji. Kovarianca je:
 	$$Cov(X,Y) = \frac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})\cdot (Y_i - \bar{Y})} = \frac{1}{N}\sum_{i = 1}^{N}{x_i \cdot y_i} - \left(\frac{1}{N}  \sum_{i = 1}^{N}{x_i}\right)\left( \frac{1}{N}\sum_{i = 1}^{N}{y_i}\right)$$
@@ -284,4 +283,50 @@ Kvadratni odklon je ugoden za računanje (tako praktično in teoretično), ker j
 	$$\varphi(X,Y) = \frac{\cfrac{1}{N}\sum_{i = 1}^{N}{(X_i - \bar{X})\cdot (Y_i - \bar{Y})} }{\sigma_X - \sigma_Y}$$
 	To je t.i. Pearsonov korelacijski koeficient. Iz Cauchy-Schwarzove neenakosti sledi $|\varphi(X,Y)| \le 1$.
 \end{Definicija}
-	\end{document}
+
+\section{Sklepna statistika}
+
+Osnovno vprašanje statistike? 
+\\
+Preučujemo slučajno spremenljivko $X:\Omega \to \mathbb{R}$. Kakšna je njena porazdelitev?
+\\
+Tipičnio nas v praksi zanimajo samo nekatere lastnosti porazdelitve, npr. pričakovana vrednost ali disperzija (za razliko od celotne komulativne funkcije $f_X: \mathbb{R}\to [0 ,1] $).
+
+\begin{Zgled}
+	Preučujemo učinek nekega statina na krvni holesterol (LDL). Razliko nivojev LDL holesterola p zdravljenjem in pred zdravljenjem prglasimo za slučajno spremenljivko, recimo X. Mera za učinek statina bo pričakovana vrednost.
+\end{Zgled} 
+\begin{Zgled}
+	Preučujemo učinek kemoterapije za neko rakavo bolezen. Terapija je uspešna, če raven teles, ki so značilna za to bolezen, pade pod predpisani prag. Učinek meri Bernulijeva slučajna spremenljvika. katere vrednost je 1, če je terapija uspešna in 0, sicer.
+\end{Zgled}
+
+Prostor $\Omega$ je v praksi prevelik, predrag ali drugače nedostopen v celoti, zato želimo lastnost, ki nas zanima, oceniti s pomočjo 'vzorca', natnačneje s pomočjo več (zaporednih, neodvisnih) ponovitev slučajnega eksperimenta, ki je zakodiran v slučajni spremenljivki $X$. Kaj lahko ugotovimo iz vzorca, je odvisno od dejanske porazdelitve slučajne spremenljivke X (ki je ne poznamo) in od velikosti vzorca:
+\begin{itemize}
+	\item 
+	Če je vzorec 'dovolj velik' si lahko pomagamo z limitnimi izreki.
+	\item
+	Če je vzorec majhen, moramo vsaj nekaj vedeti o porazelitvi slučajne spremenljivke X.
+\end{itemize}
+\begin{Zgled}
+	Imamo 100 pokritih števil. Naključno izberemo 10 števil. 
+	$$ 13, 13, 10, 11, 17, 25, 12, 19, 18, 10$$
+	Ugotovitev: Povprečje naključno izbranih števil je $14,8$.
+	\\
+	Ali lahko kaj smislenega povemo o povprečju teh 100 števil? NE.
+\end{Zgled}
+
+'Nekaj vedeti' o porazdelitvi slučajne spremenljivke X v praksi pomeni \textbf{določiti primeren nabor možnih (dopustnih) porazdelitev} za X in 'izbrati' samo med njimi.
+\begin{Zgled}
+	Privzamemo, da je $X\sim \mathcal{N}(\mu, \sigma)$ za neka neznan parametra  $\mu \in \mathbb{R}$ in $\sigma\in(0, \infty)$. Tedaj je porazdelitev doloćena z dvema parametra. Vzamemo tisti par, ki najbolj (med vsemi) ustreza vzorcu podatkov.
+\end{Zgled}		
+\begin{Zgled}
+	Privzamemo, da je $X\sim B(1,p)$. Tu je porazdelitev določena  z enim samim parametrom $p$. Izberemo tistega, ki se najbolj sklada s karakternimi podatki.
+\end{Zgled}
+
+Nabor dopustnih porazdelitev za slučajno spremenljivko X pravimo \textbf{statistični model}, njihovi izbiri oziroma (tukaj nekaj manjka Blaž) pa \textbf{modeliranje}. Pri modeliranju delamo napake (včasih velike). Po izboru modela ima statistično sklepanje preciznost matematike.
+\begin{Definicija}
+	\textbf{Slučajni vzorec} (prirejen s slučajno spremenljivko X) \textbf{velikosti n} je n-terica slučajnih spremenljivk $X_1, \ldots, X_n$, definiranih na prostoru vseh vzorcev velikosti n, kjer vrednosti slučajnih spremenljivk $X_i$ na danem vzorcu dobimo tako, da $X$ uporabimo na i-tem elementu vzorca:
+	$$X_i(\textnormal{vzorec velikosti n}) = X_i(\omega_1, \ldots,\omega_n) = X(\omega_i)$$
+\end{Definicija}
+To je formalizacija odeje ponavljanja danega slučajnega eksponenta $X$. Pri vzorčenju s ponavljanjem (rečemo tudi neodvisno vzorčenje) so komponente $X_i$ tudi \textbf{neodvisne}. V tem primeru je prostor vzorcev velikosti n kar kartezični produkt.
+\end{document}
+
