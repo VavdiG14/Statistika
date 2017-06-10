@@ -6,6 +6,7 @@
 \usepackage{bm}
 \usepackage{esvect}
 \usepackage{bbm}
+\usepackage{framed}
 
 
 \textheight 210 true mm
@@ -328,5 +329,425 @@ Nabor dopustnih porazdelitev za slučajno spremenljivko X pravimo \textbf{statis
 	$$X_i(\textnormal{vzorec velikosti n}) = X_i(\omega_1, \ldots,\omega_n) = X(\omega_i)$$
 \end{Definicija}
 To je formalizacija odeje ponavljanja danega slučajnega eksponenta $X$. Pri vzorčenju s ponavljanjem (rečemo tudi neodvisno vzorčenje) so komponente $X_i$ tudi \textbf{neodvisne}. V tem primeru je prostor vzorcev velikosti n kar kartezični produkt.
-\end{document}
 
+%Manjka eno predavanje
+
+\section{Intervali zaupanja}
+Recimo, da ocenjujemo $E(X)$ na podlagi vzorca. Intervalska ocena je metoda oziroma napoved oblike:
+\textit{Predvidevamo, da je $E(X) \in [L(\textnormal{vzorec}), U(\textnormal{vzorec})]$, kjer sta $L$ in $U$ odvisna od vzorca. }
+\\
+\\
+V splošnem lahko zapišemo takole:
+\\
+\begin{Definicija}
+	Recimo, da je c karakteristika (parameter) slučajne spremenljivke, ki nas zanima (na primer pričakovana vrednost, disperzija, ...)
+	Tedaj je intervalska ocena za c metoda, ki vzorcu priredi napoved
+	(predvidevanje):
+	$$c\in [L(\textnormal{vzorec}), U(\textnormal{vzorec})]$$
+\end{Definicija}
+
+\begin{Definicija}
+Naj bo \textbf{c} karakteristika, ki nas zanima in
+\textbf{n} velikost vzorca.
+Interval zaupanja za c \textbf{stopnje zaupanja $\beta$} za vzorec velikosti nsestoji iz funkcij, odvisnih od (dejanskega) vzorca velikosti n,imenujemo ju L in U, za kateri je verjetnost tistih vzorcev, za
+katere interval [L(vzorec),U(vzorec)] vsebuje c, večja ali enaka $\beta$.
+$$	P(L(X1, X2, . . . , Xn) \le c \le U(X1, X2, . . . , Xn))
+\ge \beta$$
+\end{Definicija}
+\subsection{Clopper-Pearsonov eksaktni interval zaupanja}
+
+\begin{Definicija}
+	Naj bo n velikost vzorca in $beta \in (0,1)$ stopnja zaupanja. Pišimo $\alpha = 1 - \beta$. Naj k označuje število pozitivnih vzorcev.
+	\[
+	L(k)= 
+	\begin{cases}
+	Beta(k, n-k+1)_{-\alpha/2} & k\ge 1\\
+	0,              & k = 0.
+	\end{cases}
+	\]
+
+	\[
+	U(k)= 
+	\begin{cases}
+	Beta(k+1, n-k)_{\alpha/2}& k\le n\\
+	1             & k=n
+	\end{cases}
+	\]
+	Tu sta $Beta(a,b)_{\alpha/2}$ oziroma $Beta(a,b)_{-\alpha/2}$ zgornji oziroma spodnji $\alpha/2$-precentil porazdelitve $Beta(a,b)$.
+\end{Definicija}
+\subsubsection{Družina porazdelitev beta}
+\begin{Definicija}
+	Naj bosta a in b pozitivni realni števili. \textbf{Porazdelitev beta s parametroma a in b} je zvezna porazdelitev, ki jo označimo Beta(a,b) s porazdelitevno gostoto:
+	\[
+	f(x) = f(x;a,b) = 
+	\begin{cases}
+	\frac{1}{Beta(a,b)} \cdot x^{a-1} (1-x)^{b-1}& x\in(0,1)\\
+	0   & x\notin (0,1)
+	\end{cases}
+	\]
+\end{Definicija}
+\begin{Opomba}
+	Velja $$Beta(a,b) = \frac{\Gamma(a) \Gamma(b)}{\Gamma(a+b)} = \int_{0}^{1}{x^{a-1}(1-x)^{b-1}dx}$$
+\end{Opomba}
+\subsection{Studentove porazdelitve}
+\begin{Izrek}
+	Naj bodo  $X_1, X_2, \ldots , X_n$ neodvisne repliakcije normalnega slučajnega eksperimenta $X\sim \mathcal{N}(\mu,\sigma)$. Tedaj sta slučajni spremenljivki $\bar{X} = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$ in $S^2 =\frac{1}{n-1}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}$ \textbf{neodvsini} (v verjetnostnem smislu).
+	
+	$$\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}} = \frac{\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}}{\sqrt{\frac{\frac{1}{n-1}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}}{n-1}}}$$
+	To pomeni, da lahko $\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}$ zapišemno kot $$t_{n-1} = \frac{Z}{\sqrt{\frac{H}{n-1}}}$$
+	pri čemer je $Z\sim \mathcal{N}(0,1)$ in $H \sim \chi_{n-1}^2$
+	\\
+	\\
+	V taki sitaciji pravimo da ima  $t_{n-1} $ \textbf{Studnetovo porazdelitev z n-1 prostostnimi stopnjami}.
+\end{Izrek}
+\subsection{Ocenjevanje pričakovane vrednosti za normalno porazdeljene slučajne spremenljivke}
+Slučajni vzorec velikosti n je sestavljen iz n-terice $X_1,\cdots X_n$ neodvisnih slučajnih spremenljivk, ki so vse porazdeljene enako kot preučevana spremenljiva X.
+\\
+\\
+Privzemimo, da je $X\sim \mathcal{N}(\mu, \sigma)$. To v praksi pogosto privzamemo za zvezne slučajne spremenljivke, ki so dovolj simetrične in dovolj 'lepe' koncentrirane okrog $\mu$. Spoimnimo se, da za standardno cenilko $\mu$ velja $\bar{X} = \frac{X_1 + \cdots X_n}{n}\sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})$
+
+\subsubsection{Z znano disperzijo}
+Privzamimo, da standardni odklon poznamo. (Sicer zelo nepraktično).
+
+Izberimo tak pra realnih števil $a < b$, da zanj velja:
+$$ P(\mathcal{N}(0,1) \in [a,b]) = \beta$$
+kjer je $\beta \in (0,1)$ (blizu 1) vnaprej predpisana stopnja zaupanja.
+\\
+\\
+Ker je $\frac{\bar{X} - \mu}{\frac{\sigma}{\sqrt{n}}}\sim \mathcal{N}(0,1)$ velja:
+$$P\left(\frac{\bar{X} - \mu}{\frac{\sigma}{\sqrt{n}}}\in [a,b]\right) = \beta$$
+$$P\left(a \le \frac{\bar{X} - \mu}{\frac{\sigma}{\sqrt{n}}}  \le b \right) = \beta $$
+$$P(-a\cdot \frac{\sigma}{\sqrt{n}} \ge \mu - \bar{X}\ge -b\cdot \frac{\sigma}{\sqrt{n}})=$$
+$$P(\bar{X}-b\cdot \frac{\sigma}{\sqrt{n}} \le \mu \le \bar{X} - a\cdot \frac{\sigma}{\sqrt{n}}) = \beta
+$$
+Verjetnost tistih vzorcev velikosti n, za katere $\mu$ pripada intervalu $[\bar{X}-b\cdot \frac{\sigma}{\sqrt{n}}, \bar{X} - a\cdot \frac{\sigma}{\sqrt{n}}]$, je enak $\beta$.
+\textbf{To pomeni, da je slučajni interval $[\bar{X}-b\cdot \frac{\sigma}{\sqrt{n}}, \bar{X} - a\cdot \frac{\sigma}{\sqrt{n}}]$ intreval zaupanja za  $\mu$  stopnje zaupanja $\beta$.}
+\\
+\\
+V praksi imamo najraje \textit{najinformativnejši} interval zaupanja. Izkaže se, da je razlika $b-a$ ( pri pogoju $\phi(b) - \phi(a) = \beta$) najmanjša, če je 
+$$b = -a = \phi^{-1}\left(\frac{1+\beta}{2}\right)$$ 
+
+\subsubsection{Z neznano disperzijo}
+Privzamimo (kar je bolj praktično), da odklona $\sigma$ ne poznamo.
+\\
+\\
+$\sigma$ lahko ocenimo s vzorčno disperzijo.
+$$S^2 = \frac{1}{n-1}\sum_{i = 1}^{n}({X_i- \bar{X}})^2$$
+ki jo imenujemo tudi standardna nepristranska cenilka za disperzijo.
+$$\sqrt{S^2}= S = \sqrt{\frac{1}{n-1}\sum_{i = 1}^{n}({X_i- \bar{X}})^2}$$
+Podobno kot prej bi želeli slučajno spremenljivko transformirati na standardno normalno..
+$$\frac{\bar{X}- \mu}{\frac{S}{\sqrt{n}}} \sim \mathcal{N}(0,1)$$
+\\
+Izkaže se, da je porazdelitev slučajne spremenljivke $\frac{\bar{X}- \mu}{\frac{S}{\sqrt{n}}}$ \textbf{ni odvisna } niti od $\mu$ niti od $\sigma$.
+\\
+
+\begin{Definicija}
+	Tako porazdelitev imenujemo \textbf{Studentova t- porazdelitev z $n-1$ prostostnimi stopnjami}
+	$$\frac{\bar{X}- \mu}{\frac{S}{\sqrt{n}}}\sim t_{n-1}$$
+	Privzeli bomo, da so vse porazdelitve $t_{n-1}$ simetrične.
+\end{Definicija}
+
+
+Izberimo tak par realnih števil $a<b$, da je zanj velja:
+$$P(t_{n-1}\in [a,b]) = \beta$$
+$$P(\bar{X}-b \cdot \frac{S}{\sqrt{n}} \le \mu \le \bar{X} -a \cdot \frac{S}{\sqrt{n}}) = \beta$$
+V praksi imamo najraje \textit{najinformativnejši} interval zaupanja. Izkaže se, da je razlika $b-a$ ( pri pogoju $\phi(b) - \phi(a) = \beta$) najmanjša, če je:
+$$b = -a = t_{n-1,(1-\beta)/2} = F^{-1}_{t_{n-1}}\left(\frac{1+\beta}{2}\right)$$
+\subsection{Ocenjevanje disperzije normalno porazdeljene slučajne porazdelitve}
+
+\begin{Definicija}
+	Pravimo, da ima Y porazdelitev \textbf{gama} s parametroma $\alpha$ in $\beta$, če ima Y gostoto:
+	$$f_y(x) = f_{\Gamma(\alpha,\beta)} (x) = \frac{1}{\Gamma(\alpha)}\beta^{\alpha}x^{\alpha - 1} e^{-\beta x} \quad x>0$$
+\end{Definicija}
+\begin{Posledica}
+	Naj bo $Y\sim \Gamma(\alpha,\beta)$. Velja:
+	$$E[Y] = \frac{\alpha}{\beta^2}$$
+\end{Posledica}
+
+\begin{Definicija}
+	Poddružina gama porazdelitve so tako imenovane \textbf{Hi-kvadrat} porazdelitve. Za definicijo vzamemo tole:
+	$$\chi_k^{2} = \Gamma(\frac{k}{2},\frac{1}{2})$$ s $k$ prostostnimi stopnjami.
+\end{Definicija}
+\begin{Trditev}
+	Naj bodo $Z_1, Z_2,\ldots Z_n$ neodvisno porazdeljene standardno normalne slučajne spremenljivke. Tedaj ima slučajna spremenljivka 
+	$$\sum_{i = 1}^{n}{Z_i^2} \sim \chi^2_n$$
+\end{Trditev}
+\begin{Trditev}
+	Naj bodo $X_1, X_2, \ldots , X_n$ neodvisno porazdeljene standardno normalne slučajne spremenljivke. Tedaj velja:
+	$$\sum_{i =1}^{n}\left(\frac{X_i- \mu}{\sigma}\right)^2\sim \chi^2_n$$
+	$$\sum_{i =1}^{n}\left(\frac{X_i- \bar{X}}{\sigma}\right)^2\sim \chi^2_{n-1}$$
+\end{Trditev}
+\begin{dokaz}
+	Dokaz trditve napravimo s pomočjo 'konvolucijskih' formul za porazdelitev vsote.
+	Velja:
+	\\
+	Če $Y_1 \sim \Gamma(\alpha_1,\beta)$ in $Y_2 \sim \Gamma(\alpha_2,\beta)$ in sta $Y_1$ in $Y_2$ neodvisna, je vsota 
+	$$Y_1 + Y_2 \sim \Gamma(\alpha_1+\alpha_2,\beta)$$
+	Posledično: $\chi_k^2 + \chi_l^2 \sim X_{k+l}^2$ ($\chi_k^2$ in $\chi_l^2$ sta neodvisni)
+\end{dokaz}
+Prva porazdelitev sledi neposredno iz prejšne trditve, pri drugi pa odštejemo $\bar{X} = \frac{1}{n}{(X_1 + X_2 + \ldots + X_n}$ povzroči "vez" v sistemu z n prostostnimi stopnjami, ker zmanjša število prostostnih stopenj za 1.
+
+\begin{Opomba}
+	'Sistem' s n prostosntnimi stopnjami ima n količin, ki se lahko spreminjajo neodvisno (prosto) druga od druge.
+	Če je vsota $X_1+ X_2+ \ldots +X_n$ določena, lahko prosto spreminjamo npr. $X_1, X_2, \ldots ,X_{n-1}$, $X_n$ pa je določena z "vezjo".
+\end{Opomba}
+\subsubsection{Z znano pričakovano vrednostjo $\mu$}
+Privzemimo, da so $X_1, X_2, \ldots , X_n$ neodvisne replikacije preučevanega slučajnega eksperimenta. $X\sim \mathcal{N}(\mu,\sigma)$. Velja:
+$$\frac{1}{\sigma^2}\sum_{i = 1}^{n}{(X_i - \mu)^2} \sim \chi_n^2$$
+Izberimo realni števili $a$ in $b$, za katere velja $P(\chi_n^2 \in [a,b]) = \beta$, pri čemer je $\beta$ stopnja zaupanja.
+$$P(a \le \frac{1}{\sigma^2}\sum_{i = 1}^{n}{(X_i - \mu)^2} \le b) = \beta \Rightarrow$$
+$$P\left( \frac{1}{b}\sum_{i = 1}^{n}{(X_i - \mu)^2}\le \sigma^2 \le  \frac{1}{a}\sum_{i = 1}^{n}{(X_i - \mu)^2}\right) = \beta$$
+Za $a$ lahko vzamemo: $a = \chi^2_{n,\frac{1-\beta}{2}} = F_{\chi_n^2}^{-1}\left(\frac{1-\beta}{2}\right)$
+\\
+Za $b$ lahko vzamemo: $b = \chi^2_{n,\frac{1+\beta}{2}} = F_{\chi_n^2}^{-1}\left(\frac{1+\beta}{2}\right)$
+\\
+\\
+Tako dobimo  enakorepi interval zaupanja za $\sigma^2$ pri znanem $\mu$:
+$$\left[\frac{1}{F_{\chi_n^2}^{-1}\left(\frac{1+\beta}{2}\right)}\sum_{i = 1}^{n}{(X_i - \mu)^2}, \frac{1}{F_{\chi_n^2}^{-1}\left(\frac{1-\beta}{2}\right)}\sum_{i = 1}^{n}{(X_i - \mu)^2}\right]$$
+
+\begin{Opomba}
+	Ta interval zaupanja ni najkrajši (v pričakovani vrednosti dolžine intrevala). Najkrajši interval lahko dobimo s numeričnim račuananjem zahtevnih integralskih enačb. V praski še dandanes uporabljamo enakorepei interval.
+\end{Opomba}
+\subsubsection{Z neznano pričakovano vrednostjo $\mu$}
+Privzemimo, da so $X_1, X_2, \ldots , X_n$ neodvisne replikacije preučevanega slučajnega eksperimenta. $X\sim \mathcal{N}(\mu,\sigma)$. Velja:
+$$\frac{1}{\sigma^2}\sum_{i = 1}^{n}{(X_i - \bar{X})^2} \sim \chi_{n-1}^2$$
+Izberemo realni števili $a$ in $b$ za katere velja $P(\chi_{n-1}^2 \in [a,b]) = \beta$, pri čemer je $\beta$ stopnja zaupanja.
+$$P\left( \frac{1}{b}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}\le \sigma^2 \le  \frac{1}{a}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}\right) = \beta$$
+
+Tedaj dobimo \textbf{enakorepi interval}:
+$$\left[\frac{1}{F_{\chi_n^2}^{-1}\left(\frac{1+\beta}{2}\right)}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}, \frac{1}{F_{\chi_n^2}^{-1}\left(\frac{1-\beta}{2}\right)}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}\right]$$
+\begin{Opomba}
+	Ta interval ni najkrajši. V praksi vzamemo pričakovano vrednost tega intervala. ($\bar{X}$ je tukaj slučajna spremenljivka).
+\end{Opomba}
+\begin{Opomba}
+	$$0 \le L(vzorec) \le \sigma^2 \le U(vzrorec) \iff \sqrt{L(vzorec)} \le \sigma^2 \le \sqrt{U(vzorec)}$$
+	To pomeni, da interval zaupanja za $\sigma$ enake stopnje zaupanja ($\beta$) dobimo tako, da korenimo intervalski meji za $\sigma^2$. 
+\end{Opomba}
+\section{Preizkuševanje domnev}
+\subsection{Uvod}
+Spomnimo se na 'problem' zaposlenega v podpori, ki nudi storitve strankam. Predpostavljamo, da slučajno izberemo storitev opravi zadovoljivo z verjetnostjo $p$. Tej verjetnosti pravimo 'notranji' oziroma dejanski $p$.
+Direktor se odloča za povišico. Pravi, da je povišica smiselna, če je $p$ zaposlenega večji od $0.7$.
+\begin{Opomba}
+	To bi lahko rešili z intervali zaupanja. Na primer: zahtevali bi, da je spodnja meja intervala zaupanja enaka 0.7.
+\end{Opomba}
+\begin{Opomba}
+	Odločitev ali podpremo ali zavrnemo domnevo $p> 0.7$,bomo napravili na podlagi vzorca storitev.
+\end{Opomba}
+
+Jasno je, da imamo samo dve opciji:
+\begin{enumerate}
+	\item 
+	podpremo $p > 0.7$
+	\item
+	ne podpremo $p > 0.7$ (podpremo $p\le 0.7$)
+\end{enumerate}
+
+Preizkus domneve (oz. test hipoteze) $p\le 0.7$ nasporti domnevi $p>0.7$ temelji na \textbf{odločitvenem pravilu}, ki pove, kako se bomo odločili glede na rezultat n neodvisnih ponovitev poskusa.
+V našem primeru bomo izbrali $n$ storitev, $k$ od njih bo ocenjenih zadovoljivo. Narediti moramo odločitevno pravilo. Recimo, da je $n=20$.
+\\
+Vidimo, da je smiselno, da je naše odločitveno pravilo naslednje oblike:
+\[
+\begin{cases}
+\textnormal{podprem}o\quad p>0.7 & \textnormal{če}\quad k>C\\
+\textnormal{ne podpremo} \quad p\le 0.7  & \textnormal{če} \quad k\le C
+\end{cases}
+\]
+kjer je $C$ primerno število med $0$ in $n$.
+\\
+\\
+Pri odločitvi bomo naredili napako. Kakšne so možne napake?
+
+\begin{table}[h]
+	\label{my-label}
+	\begin{tabular}{lllll}
+		\cline{1-3}
+		\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Dejansko stanje\\ Odločitev\end{tabular}} & \multicolumn{1}{l|}{$p\le 0.7$} & \multicolumn{1}{l|}{$p>0.7$} &  &  \\ \cline{1-3}
+		\multicolumn{1}{|l|}{Podpremo ($p \le 0.7$)}                                              & \multicolumn{1}{l|}{OK}         & \multicolumn{1}{l|}{Napaka}  &  &  \\ \cline{1-3}
+		\multicolumn{1}{|l|}{Ne podpremo ($p>0.7$)}                                               & \multicolumn{1}{l|}{Napaka}     & \multicolumn{1}{l|}{OK}      &  &  \\ \cline{1-3}
+		&                                 &                              &  & 
+	\end{tabular}
+\end{table}
+
+Izračunajmo verjetnost, da podpremo $p>0.7$, pri pogoju, da je v resnici $p\le 0.7$. $$P(k> C | \textnormal{dejanski}\quad p\le 0.7)$$
+Vrednost napake ne število, ampak funkcija dejanskega p, za katerega privzamemo, da je $p\le 0.7$. Če želimo, da je ta verjetnost manjša ali enaka $0.1$ za vse $p\le 0.7$ pri $n=20$ bi izbrali $C=17$. Se pravi, odločitev $p>0.7$ bomo podprli le za $k=18,19,20$.
+\\
+\\
+Kaj pa 'druga napaka' (v prvi vrstici)?
+\\
+To je napaka, ki jo storimo, če podpremo $p\le 0.7$, kljub temu, da je $p>0.7$. Njena verjetnost je $$P(k\le C | \textnormal{dejanski}\quad p> 0.7) = \sum_{k =0}^{C}\binom{n}{k}p^k (1-p)^{n-k}$$
+To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
+
+\subsection{Preizkušanje domnev v splošnem}
+\begin{Definicija}
+	\textbf{Domneva} ali hipoteza je izjava o porazdelitvi preučevane slučajne spremenljivke. (V uvodnem primeru $X\sim Bin(1,p)$; $p$ je lasnost porazdelitve)
+	\\
+	\\
+	Nasporti ji stoji tako imenovana \textbf{alternativna domneva}, ki jo v osnovnem primeru negacija prvotne domneve.
+	\\
+	\\
+	Preizkus ali test domneve je odločitveno pravilo, po katerem glede na vse možne rezultate n neodvisnih ponovitev eksperimenta $X$ odločimo ali potrdimo hipotezo $H$ ali njeno alternativo $A$.
+\end{Definicija}
+	Pri odločitvi lahko naredimo napako. Ustrezni diagram:
+	\begin{table}[h]
+		\centering
+		\label{my-label}
+		\begin{tabular}{lllll}
+			\cline{1-3}
+			\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Dejansko stanje\\ Odločitev\end{tabular}} & \multicolumn{1}{l|}{Drži H} & \multicolumn{1}{l|}{Drži A }&  &  \\ \cline{1-3}
+			\multicolumn{1}{|l|}{Podpremo H}                                              & \multicolumn{1}{l|}{OK}         & \multicolumn{1}{l|}{Napaka 2.vrste}  &  &  \\ \cline{1-3}
+			\multicolumn{1}{|l|}{Podpremo A}                                               & \multicolumn{1}{l|}{Napaka 1.vrste}     & \multicolumn{1}{l|}{OK}      &  &  \\ \cline{1-3}
+			&                                 &                              &  & 
+		\end{tabular}
+	\end{table}
+	
+	Obeh napak hkrati ne moremo minimizirati. V najboljšem primeru sta si napaki komplementarni. Eno od njiju si izberemo kot pomembno in jo zmanjšujemo pod vnaprej predpisano raven $\alpha \in (0,1)$, ki ji pravimo \textbf{stopnja zančilnosti}.
+	\\
+	\\
+	Po potrebi vlogi H in A zamenjamo, tako da je napaka katere verjetnost $< \alpha$ tista, pri kateri podpremo A, čeprav drži H. Tej napaki pravimo \textbf{napak prve vrste}. Napaki, ki jo storimo, če pa podpremo H, čeprav drži A pa pravimo \textbf{napaka druge vrste}.
+	\\
+	\\
+	Statistični test (preizkus) domneve H proti domnevi A je odločitveno pravilo oblike:
+	\[
+	\begin{cases}
+	\textnormal{podpremo A (zavrnemo H)} & \textnormal{če izpolnjuje neki pogoj glede na vzorec } X_1,\ldots X_n\\
+	\textnormal{podpremo H (ne zavrnemo H) } & \textnormal{sicer }
+	\end{cases}
+	\]
+	Paziti moramo, saj gre v naprej določeno velikost vzorca $n$.
+\pagebreak
+
+	V zgledu z zaposlenim v podpori smo imeli $X\sim Bin(1,p)$ ter domnevi $H: p\le 0.7$ in $A: p>0.7$. Test je oblike:
+		\[
+	\begin{cases}
+	\textnormal{zavrnemo H} & \textnormal{če je } X_1 + X_2 +\ldots + X_n > C\\
+	\textnormal{ne zavrnemo H} & \textnormal{če je }  X_1 + X_2 +\ldots + X_n \le C
+	\end{cases}
+	\]
+	kjer so $X_1, X_2,\ldots X_n$ neodvisne replikacije slučajne spremenljivke $X$.
+	\\
+	\\
+	Slučajni spremenljivki $ T = X_1 + X_2 +\ldots + X_n$ iz zgleda pravimo \textbf{testna statistika}, kjer se o tem, katero od obeh hipotez v testu podpremo, odločimo na podlagi vrednosti slučajne spremenljivke $T$.
+	\begin{Trditev}
+			Naj bo $T: \mathbb{R}^n \to \mathbb{R}$ (ali splošneje $\mathbb{R}^n \to \mathbb{R}^m)$ primerna funkcija. Tedaj je $T$ testna statistika za test dane domneve H proti alternativi A, če se v testu odločimo (izključno) glede na vrednosti $T(X_1, \ldots, X_n)$.
+	\end{Trditev}
+	
+	Spomnimo se, da je napak prve vrste napaka, ki jo storimo, če zavzamemo H (podpremo A) kljub temu da H drži. Test ima značilnost $\alpha$, če je verjetnost napake prve vrste navzgor omejena z $\alpha$.
+	\\
+	Napaka druge vrste je napaka, ki jo storimo če zavzamemo H (podpremo H), kljub temu da H ne drži (drži A).
+	\begin{Opomba}
+		Napako prve vrste lahko naredimo le, če drži H.
+	\end{Opomba}text in 
+	\begin{Opomba}
+		Napako druge vrste lahko naredimo le, če drži A.
+	\end{Opomba}
+	Če ima naš test zančilnosti $\alpha$ (kjer je $\alpha$ blizu 0), potem udobno zavrnemo domnevo H (če so izpolnjeni pogoji), ker je verjetnost da se to po nesreči zgodi, majhna.
+	\\
+	\\
+	Ne rečemo pa radi, da H podpremo (če so izpolnjene predpostavke), ker je verjentost napake druge vrste lahko velika.
+	\subsection{Preizkušanje v zvezi z Bernoullijevim p}
+	\begin{framed}
+		\begin{center}
+			\textbf{Enostranski test ničelne hipoteze $H_0: p\le p_0$}
+		\end{center}
+		Testna statistika za vzorce velikosti $n$:
+		$$T = X_1 + X_2 +\ldots + X_n$$
+		Testiranje $H_0: p\le p_0$ proti $p > p_0$ stopnje zančilnosti $\alpha$
+			\[
+		\begin{cases}
+		H_0 \textnormal{ zavrnemo } & \textnormal{če } T> C\\
+		H_0 \textnormal{ ne zavrnemo } & \textnormal{če }  T\le C
+		\end{cases}
+		\]
+		kjer je $C$ \textbf{najmanjše} tako celo število, za katero je 
+		$$P(B(n,p_0) > C) = 1 - P(B(n,p_0) \le C) \le \alpha$$
+	\end{framed}
+%	\begin{framed}
+%		\begin{center}
+%			\textbf{$\textbf{p}$-vrednost}
+%		\end{center}
+%		Če $T=t$, znaša:
+%		$$P(B(n,p_0) \ge t) = 1 - P(B(n,p_0) \le t)) + P(B(n,p_0) = t))$$
+%	\end{framed}
+	
+	\begin{Zgled}
+		Tokrat direktor pravi, da bo zaposlene s $p< 0.7$ odpustil. Napaka, da po nesereči podpremo $p<0.7$ (zavrnemo $p\ge 0.7$), je kritična in jo želimo omejiti navzgor z $\alpha = 0.1$.
+		\\
+		\\
+		Lahko gledamo C od 1 do 14 (ne do 20)
+		\\
+		$C = 11$, zavrnemo, če $T<11$
+		\\
+		\\
+		Zanimiva je primerjava med $T$ in $E[T|p=p_0]$
+		\\
+		Efekt pravičnega vzorca:
+		$$\lim\limits_{n\to \infty}{\frac{C_n}{E[T|p=p_0]}} = 1$$ (zakon o velikih števil)
+	\end{Zgled}
+		\begin{framed}
+		\begin{center}
+			\textbf{Enostranski test ničelne hipoteze $H_0: p\ge p_0$}
+		\end{center}
+		Testna statistika za vzorce velikosti $n$:
+		$$T = X_1 + X_2 +\ldots + X_n$$
+		Testiranje $H_0: p\ge p_0$ proti $p < p_0$ stopnje zančilnosti $\alpha$
+		\[
+		\begin{cases}
+		H_0 \textnormal{ zavrnemo } & \textnormal{če } T< C\\
+		H_0 \textnormal{ ne zavrnemo } & \textnormal{če }  T\ge C
+		\end{cases}
+		\]
+		kjer je $C$ \textbf{največje} tako celo število, za katero je 
+		$$P(B(n,p_0) < C) = P(B(n,p_0) \le C-1) \le \alpha$$
+	\end{framed}
+\pagebreak
+	\begin{Zgled}
+		Test $H_0 : p = p_0$ proti $A: p \ne p_0$
+		\[
+		\begin{cases}
+		H_0 \textnormal{ zavrnemo } & \textnormal{če   } T<C_1 \quad \textnormal{ali} \quad T>C_2 \\
+		H_0 \textnormal{ ne zavrnemo } & \textnormal{sicer}
+		\end{cases}
+		\]
+		Določanje konstant $C_1$ in $C_2$ je algoritmično zahtevno. Izkaže se, da je za primerna $C_1$ in $C_2$ zgornji test ekvivalenten test oblike:
+	\end{Zgled}
+			\begin{framed}
+			\begin{center}
+				\textbf{Dvostranski test ničelne hipoteze $H_0: p = p_0$}
+			\end{center}
+			Testna statistika za vzorce velikosti $n$:
+			$$T = X_1 + X_2 +\ldots + X_n$$
+			Testiranje $H_0: p= p_0$ proti $p \ne p_0$ stopnje zančilnosti $\alpha$
+			\\
+			Privzamimo, da imamo interval zaupanja za $p$ za vzorec velikosti $n$ 
+			\\ stopnje zaupanja $\ge 1-\alpha$.
+			\[
+			\begin{cases}
+			H_0 \textnormal{ zavrnemo } & \textnormal{če $p_0$ ne pripada intervalu zaupanja}(T)\\
+			H_0 \textnormal{ ne zavrnemo } & \textnormal{če $p_0$ pripada intervalu zaupanja}(T)
+			\end{cases}
+			\]
+			Vzamemo lahko Clopper-Pearsonov eksaktni interval:
+			\[
+			L(k)= 
+			\begin{cases}
+			Beta(k, n-k+1)_{-\alpha/2} & k\ge 1\\
+			0,              & k = 0.
+			\end{cases}
+			\]
+			
+			\[
+			U(k)= 
+			\begin{cases}
+			Beta(k+1, n-k)_{\alpha/2}& k\le n\\
+			1             & k=n
+			\end{cases}
+			\]
+			Tu sta $Beta(a,b)_{\alpha/2}$ oziroma $Beta(a,b)_{-\alpha/2}$ zgornji oziroma spodnji $\alpha/2$-precentil porazdelitve $Beta(a,b)$.
+			\end{framed}
+		\begin{Trditev}
+			Če ima interval zaupanja za p stopnjo zaupanja $1-\alpha$ ima zgornji test stopnjo značilnosti $\alpha$.
+		\end{Trditev}
+\subsection{Preizkušanje E(X) v normalnih populacijah}
+	\subsubsection{Sigma poznan}
+	
+\end{document}
