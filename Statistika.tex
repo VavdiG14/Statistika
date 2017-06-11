@@ -749,5 +749,159 @@ To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
 		\end{Trditev}
 \subsection{Preizkušanje E(X) v normalnih populacijah}
 	\subsubsection{Sigma poznan}
-	
+		\begin{enumerate}
+			\item \textbf{Enostranski test ničelne hipoteze $\mu_ \ge \mu_0$}
+			\\
+			Preizkus $H: \mu \le \mu_0$ proti $A:\mu > \mu_0$.
+			\\
+			Slučajni vzorec velikosti $n$ : $X_1, X_2, \ldots X_n$.
+			\\
+			Testna statistika zavzorec velikosti n: $$T= \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}}$$
+			\begin{Zgled}
+				Primer Kavomata: Želimo 'statistično dokazati' da kavomat da v povprečju več kot 50ml.
+				\\
+				$H:\mu \le 50$ proti $A: \mu > 50$
+				\\
+				Vzorec: n-krat kupimo kavo in izmerimo volumen.
+				'Naivna' testna statistika bi bila: $X_1 + X_2 + \ldots + X_n$.
+				\\
+				\[
+				\textnormal{Test: }
+				\begin{cases}
+				H_0 \textnormal{ zavrnemo } & \textnormal{če je } \frac{X_1 + X_2 + \ldots + X_n}{n} > C\\
+				H_0 \textnormal{ ne zavrnemo } & \textnormal{če je } \frac{X_1 + X_2 + \ldots + X_n}{n} \le C
+				\end{cases}
+				\]
+			\end{Zgled}
+			Kakšna je porazdelitev?
+			\\
+			$X_1, X_2, \ldots ,X_n \sim \mathcal{N}(\mu,\sigma) $. 
+			Iz tega sledi, da je $\bar{X}\sim\mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}}) \Rightarrow \bar{X} -\mu_0 \sim \mathcal{N}(\mu - \mu_0, \frac{\sigma}{\sqrt{n}}) \Rightarrow$
+			$$T\sim \mathcal{N}\left(\frac{\bar{X}- \mu_0}{\frac{\sigma}{\sqrt{n}}}, 1\right)$$
+			\begin{framed}
+				\textbf{Enostranski test ničelne hipoteze $H_0: \mu\le \mu_0$}
+			\[
+			\begin{cases}
+			H_0 \textnormal{ zavrnemo } & \textnormal{če je } \frac{\bar{X}- \mu_0}{\frac{\sigma}{\sqrt{n}}} > z_\alpha\\
+			H_0 \textnormal{ ne zavrnemo } & \textnormal{sicer } 
+			\end{cases}
+			\]
+			$z_\alpha$: zgornji $\alpha$-percentil standardne normalne porazdelitve.
+			\end{framed}
+		\begin{Opomba}
+			$$\frac{\bar{X}- \mu_0}{\frac{\sigma}{\sqrt{n}}} > z_\alpha \iff \bar{X} > \mu_0 + z_\alpha \frac{\sigma}{\sqrt{n}}$$
+		\end{Opomba}
+		Izračunajmo verjetnost napake prve vrste:
+		$$P(T> z_\alpha \quad | \quad \textnormal{dejanski} \quad \mu\le \mu_0) = P\left(\mathcal{N}\left(\frac{\bar{X}- \mu_0}{\frac{\sigma}{\sqrt{n}}}, 1\right) > z_\alpha | \mu\le \mu_0\right)$$
+		Vzemimo, da je to funkcija parametra $\mu\le \mu_0$. Ta funkcija iam maksimum pri $\mu_0:
+		P(\mathcal{N}(0,1) > z_\alpha) = \alpha$ (definicija precentila)
+		\\
+		\\
+		Napako druge vrste naredimo, če ne zavrnemo $H_0$, čeprav drži $A$. Verjetnost je v tem primeru:
+		$$P(T \le z_\alpha | \mu > \mu_0) = P\left(\mathcal{N}\left(\frac{\bar{X}- \mu_0}{\frac{\sigma}{\sqrt{n}}}, 1\right) \le z_\alpha | \mu> \mu_0\right) = F_{\mathcal{N}\left(\frac{\bar{X}- \mu_0}{\frac{\sigma}{\sqrt{n}}}, 1\right)}(z_\alpha)$$
+\pagebreak
+		\item 
+		\textbf{Enostranski test ničelne hipoteze $\mu_ \le \mu_0$}
+			\begin{framed}
+			\begin{center}
+				\textbf{Enostranski test ničelne hipoteze $H_0: p \ge p_0$}
+			\end{center}
+			Testna statistika za vzorce velikosti $n$:
+			$$T = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}}$$
+			Testiranje $H_0: p\ge p_0$ proti $p < p_0$ stopnje zančilnosti $\alpha$
+			\[
+			\begin{cases}
+			H_0 \textnormal{ zavrnemo } & \textnormal{če } T < -z_\alpha\\
+			H_0 \textnormal{ ne zavrnemo } & \textnormal{sicer}
+			\end{cases}
+			\]
+			$z_\alpha$: zgornji $\alpha$-percentil standardne normalne porazdelitve.
+		\end{framed}
+		\item
+	\textbf{Dvostranski test ničelne hipoteze $H_0: \mu =\mu_0$}
+	\begin{framed}
+		\begin{center}
+			\textbf{Dvostranski test ničelne hipoteze $H_0: \mu =\mu_0$}
+		\end{center}
+		Testna statistika za vzorce velikosti $n$:
+		$$T = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}}$$
+		Testiranje $H_0: \mu = \mu_0$ proti $\mu \ne \mu_0$ stopnje zančilnosti $\alpha$
+		\[
+		\begin{cases}
+		H_0 \textnormal{ zavrnemo } & \textnormal{če } |T| > z_{\frac{\alpha}{2}}\\
+		H_0 \textnormal{ ne zavrnemo } & \textnormal{sicer}
+		\end{cases}
+		\]
+		$z_{\frac{\alpha}{2}}$: zgornji $\alpha$-percentil standardne normalne porazdelitve.
+	\end{framed}
+	Intuicija nam pravi, da bomo $H_0: \mu = \mu_0$ zavrnili, če bo $\bar{X}$ daleč stran od $\mu$.
+	\begin{Opomba}
+	$$ \left|\frac{\bar{X}- \mu_0}{\frac{\sigma}{\sqrt{n}}} \right|> z_{\frac{\alpha}{2}} \iff | \bar{X} - \mu_0 |>  z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}$$	
+	\end{Opomba}
+		\end{enumerate}
+	\subsubsection{Sigma ni poznan}
+	Tedaj je testna statistika T enaka:
+	$$T = \frac{\bar{X} - \mu_0}{\frac{S}{\sqrt{n}}}$$
+	pri čemer je $S^2$ neprsitranska cenilka za disperzijo:
+	$$S = \sqrt{\frac{1}{n-1}\sum_{i = 1}^{n}(X_i - \bar{X})^2}$$
+	\begin{enumerate}
+		\item
+		 \textbf{Enostranski test ničelne hipoteze $\mu_ \le \mu_0$}
+		 \begin{framed}
+		 	\textbf{Enostranski test ničelne hipoteze $H_0: \mu\le \mu_0$}
+		 	\[
+		 	\begin{cases}
+		 	H_0 \textnormal{ zavrnemo } & \textnormal{če je } T > t_{n-1,\alpha}\\
+		 	H_0 \textnormal{ ne zavrnemo } & \textnormal{sicer} 
+		 	\end{cases}
+		 	\]
+		 	$t_{n-1,\alpha}$: zgornji $\alpha$-percentil t-porazdelitve z $n-1$ prostostnimi stopnjami.
+		 \end{framed}
+	 Pripomnimo, da je pri $\mu = \mu_0$ testna statistika porazdeljena kot $t_{n-1}$.
+	 \\
+	 \\
+	 Verjetnost napake prve vrste $P(T> t{n-1,\alpha} | \mu \le \mu_0)$ doseže maksimum pri $\mu = \mu_0$ . Ta je enak $P(t_{n-1} > t_{n-1,\alpha}) = \alpha$.
+	 \item
+	 	\textbf{Enostranski test ničelne hipoteze $\mu_ \ge \mu_0$}
+	 \begin{framed}
+	 	\begin{center}
+	 		\textbf{Enostranski test ničelne hipoteze $H_0: \mu \ge \mu_0$}
+	 	\end{center}
+	 	Testna statistika za vzorce velikosti $n$:
+	 	$$T = \frac{\bar{X} - \mu_0}{\frac{S}{\sqrt{n}}}$$
+	 	Testiranje $H_0: \mu \ge \mu_0$ proti $\mu < \mu_0$ stopnje zančilnosti $\alpha$
+	 	\[
+	 	\begin{cases}
+	 	H_0 \textnormal{ zavrnemo } & \textnormal{če } T < -t_{n-1,\alpha}\\
+	 	H_0 \textnormal{ ne zavrnemo } & \textnormal{sicer}
+	 	\end{cases}
+	 	\]
+	 	$t_{n-1,\alpha}$: zgornji $\alpha$-percentil Studentove porazdelitve z $n-1$ prostostnimi stopnjami.
+	 \end{framed}
+ \begin{Opomba}
+ 	Če testiramo $\mu \le \mu_0$ proti $\mu <\mu_0$ zavrniti s čim manjšo ustrezno napako.
+ 	$$P(T > t_{n-1,\alpha} )| \mu \le \mu_0) \le \alpha$$
+ 	Če pa testiramo $\mu \ge \mu_0$ proti $\mu < \mu_0$, želimo zavrniti $\mu \ge \mu_0$ s čim manjšo ustrezno napako:
+ 	$$P(T< t_{n-1,\alpha} | \mu \ge \mu_0) \le \alpha$$
+ \end{Opomba}
+	\item
+	\textbf{Dvostranski test ničelne hipoteze $H_0: \mu =\mu_0$}
+	\begin{framed}
+		\begin{center}
+			\textbf{Dvostranski test ničelne hipoteze $H_0: \mu =\mu_0$}
+		\end{center}
+		Testna statistika za vzorce velikosti $n$:
+		$$T = \frac{\bar{X} - \mu_0}{\frac{S}{\sqrt{n}}}$$
+		Testiranje $H_0: \mu = \mu_0$ proti $\mu \ne \mu_0$ stopnje zančilnosti $\alpha$
+		\[
+		\begin{cases}
+		H_0 \textnormal{ zavrnemo } & \textnormal{če } |T| > t_{n-1,\frac{\alpha}{2}}\\
+		H_0 \textnormal{ ne zavrnemo } & \textnormal{sicer}
+		\end{cases}
+		\]
+		$t_{n-1,\alpha}$: zgornji $\alpha$-percentil Studentove porazdelitve z $n-1$ prostostnimi stopnjami.
+	\end{framed}
+	\end{enumerate}
+\subsection{Dve normalni populaciji}
+
 \end{document}
