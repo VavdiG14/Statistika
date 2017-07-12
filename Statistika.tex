@@ -264,7 +264,7 @@ Te poznamo že od prej.
 	Evklidska razdalja med $(X_1, \ldots , X_N) $  in njegovo pravokotno projekcijo na premico $\{ t \cdot (1,1, \ldots, 1) | t\in \mathbb{R} \}$
 \end{Opomba}	
 
-Kvadratni odklon je ugoden za računanje (tako praktično in teoretično), ker je ustrezna razdalja porojena z skalarnim produktom.
+Kvadratni odklon je ugoden za računanje (tako praktično in teoretično), ker je ustrezna razdalja porojena s skalarnim produktom.
 \begin{Trditev}
 	Naj bo $\sigma_1$ povprečni absolutni odklon in $\sigma_2 = \sigma$ standardni odklon. Potem velja:
 	$$\sigma_1 \le \sigma \le  \sqrt{N} \cdot \sigma_1$$
@@ -291,16 +291,16 @@ Osnovno vprašanje statistike?
 \\
 Preučujemo slučajno spremenljivko $X:\Omega \to \mathbb{R}$. Kakšna je njena porazdelitev?
 \\
-Tipičnio nas v praksi zanimajo samo nekatere lastnosti porazdelitve, npr. pričakovana vrednost ali disperzija (za razliko od celotne komulativne funkcije $f_X: \mathbb{R}\to [0 ,1] $).
+Tipično nas v praksi zanimajo samo nekatere lastnosti porazdelitve, npr. pričakovana vrednost ali disperzija (za razliko od celotne komulativne funkcije $f_X: \mathbb{R}\to [0 ,1] $).
 
 \begin{Zgled}
-	Preučujemo učinek nekega statina na krvni holesterol (LDL). Razliko nivojev LDL holesterola p zdravljenjem in pred zdravljenjem prglasimo za slučajno spremenljivko, recimo X. Mera za učinek statina bo pričakovana vrednost.
+	Preučujemo učinek nekega statina na krvni holesterol (LDL). Razliko nivojev LDL holesterola po zdravljenju in pred zdravljenjem proglasimo za slučajno spremenljivko, recimo X. Mera za učinek statina bo pričakovana vrednost.
 \end{Zgled} 
 \begin{Zgled}
 	Preučujemo učinek kemoterapije za neko rakavo bolezen. Terapija je uspešna, če raven teles, ki so značilna za to bolezen, pade pod predpisani prag. Učinek meri Bernulijeva slučajna spremenljvika. katere vrednost je 1, če je terapija uspešna in 0, sicer.
 \end{Zgled}
 
-Prostor $\Omega$ je v praksi prevelik, predrag ali drugače nedostopen v celoti, zato želimo lastnost, ki nas zanima, oceniti s pomočjo 'vzorca', natnačneje s pomočjo več (zaporednih, neodvisnih) ponovitev slučajnega eksperimenta, ki je zakodiran v slučajni spremenljivki $X$. Kaj lahko ugotovimo iz vzorca, je odvisno od dejanske porazdelitve slučajne spremenljivke X (ki je ne poznamo) in od velikosti vzorca:
+Prostor $\Omega$ je v praksi prevelik, predrag ali drugače nedostopen v celoti, zato želimo lastnost, ki nas zanima, oceniti s pomočjo 'vzorca', natančneje s pomočjo več (zaporednih, neodvisnih) ponovitev slučajnega eksperimenta, ki je zakodiran v slučajni spremenljivki $X$. Kaj lahko ugotovimo iz vzorca, je odvisno od dejanske porazdelitve slučajne spremenljivke X (ki je ne poznamo) in od velikosti vzorca:
 \begin{itemize}
 	\item 
 	Če je vzorec 'dovolj velik' si lahko pomagamo z limitnimi izreki.
@@ -323,12 +323,12 @@ Prostor $\Omega$ je v praksi prevelik, predrag ali drugače nedostopen v celoti,
 	Privzamemo, da je $X\sim B(1,p)$. Tu je porazdelitev določena  z enim samim parametrom $p$. Izberemo tistega, ki se najbolj sklada s karakternimi podatki.
 \end{Zgled}
 
-Nabor dopustnih porazdelitev za slučajno spremenljivko X pravimo \textbf{statistični model}, njihovi izbiri oziroma (tukaj nekaj manjka Blaž) pa \textbf{modeliranje}. Pri modeliranju delamo napake (včasih velike). Po izboru modela ima statistično sklepanje preciznost matematike.
+Nabor dopustnih porazdelitev za slučajno spremenljivko X pravimo \textbf{statistični model}, njihovi izbiri oziroma pa \textbf{modeliranje}. Pri modeliranju delamo napake (včasih velike). Po izboru modela ima statistično sklepanje preciznost matematike.
 \begin{Definicija}
 	\textbf{Slučajni vzorec} (prirejen s slučajno spremenljivko X) \textbf{velikosti n} je n-terica slučajnih spremenljivk $X_1, \ldots, X_n$, definiranih na prostoru vseh vzorcev velikosti n, kjer vrednosti slučajnih spremenljivk $X_i$ na danem vzorcu dobimo tako, da $X$ uporabimo na i-tem elementu vzorca:
 	$$X_i(\textnormal{vzorec velikosti n}) = X_i(\omega_1, \ldots,\omega_n) = X(\omega_i)$$
 \end{Definicija}
-To je formalizacija odeje ponavljanja danega slučajnega eksponenta $X$. Pri vzorčenju s ponavljanjem (rečemo tudi neodvisno vzorčenje) so komponente $X_i$ tudi \textbf{neodvisne}. V tem primeru je prostor vzorcev velikosti n kar kartezični produkt.
+To je formalizacija ideje ponavljanja danega slučajnega eksperimenta $X$. Pri vzorčenju s ponavljanjem (rečemo tudi neodvisno vzorčenje) so komponente $X_i$ tudi \textbf{neodvisne}. V tem primeru je prostor vzorcev velikosti n kar kartezični produkt.
 
 %Manjka eno predavanje
 
@@ -349,8 +349,7 @@ V splošnem lahko zapišemo takole:
 \begin{Definicija}
 Naj bo \textbf{c} karakteristika, ki nas zanima in
 \textbf{n} velikost vzorca.
-Interval zaupanja za c \textbf{stopnje zaupanja $\beta$} za vzorec velikosti nsestoji iz funkcij, odvisnih od (dejanskega) vzorca velikosti n,imenujemo ju L in U, za kateri je verjetnost tistih vzorcev, za
-katere interval [L(vzorec),U(vzorec)] vsebuje c, večja ali enaka $\beta$.
+Interval zaupanja za c \textbf{stopnje zaupanja $\beta$} za vzorec velikosti n sestoji iz funkcij, odvisnih od (dejanskega) vzorca velikosti n. Imenujemo ju L in U, za kateri je verjetnost tistih vzorcev, katere interval [L(vzorec),U(vzorec)] vsebuje c, večja ali enaka $\beta$.
 $$	P(L(X1, X2, . . . , Xn) \le c \le U(X1, X2, . . . , Xn))
 \ge \beta$$
 \end{Definicija}
@@ -391,25 +390,25 @@ $$	P(L(X1, X2, . . . , Xn) \le c \le U(X1, X2, . . . , Xn))
 \end{Opomba}
 \subsection{Studentove porazdelitve}
 \begin{Izrek}
-	Naj bodo  $X_1, X_2, \ldots , X_n$ neodvisne repliakcije normalnega slučajnega eksperimenta $X\sim \mathcal{N}(\mu,\sigma)$. Tedaj sta slučajni spremenljivki $\bar{X} = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$ in $S^2 =\frac{1}{n-1}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}$ \textbf{neodvsini} (v verjetnostnem smislu).
+	Naj bodo  $X_1, X_2, \ldots , X_n$ neodvisne replikacije normalnega slučajnega eksperimenta $X\sim \mathcal{N}(\mu,\sigma)$. Tedaj sta slučajni spremenljivki $\bar{X} = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$ in $S^2 =\frac{1}{n-1}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}$ \textbf{neodvsini} (v verjetnostnem smislu).
 	
 	$$\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}} = \frac{\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}}{\sqrt{\frac{\frac{1}{n-1}\sum_{i = 1}^{n}{(X_i - \bar{X})^2}}{n-1}}}$$
-	To pomeni, da lahko $\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}$ zapišemno kot $$t_{n-1} = \frac{Z}{\sqrt{\frac{H}{n-1}}}$$
+	To pomeni, da lahko $\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}$ zapišemo kot $$t_{n-1} = \frac{Z}{\sqrt{\frac{H}{n-1}}}$$
 	pri čemer je $Z\sim \mathcal{N}(0,1)$ in $H \sim \chi_{n-1}^2$
 	\\
 	\\
-	V taki sitaciji pravimo da ima  $t_{n-1} $ \textbf{Studnetovo porazdelitev z n-1 prostostnimi stopnjami}.
+	V taki situaciji pravimo, da ima  $t_{n-1} $ \textbf{Studentovo porazdelitev z n-1 prostostnimi stopnjami}.
 \end{Izrek}
 \subsection{Ocenjevanje pričakovane vrednosti za normalno porazdeljene slučajne spremenljivke}
-Slučajni vzorec velikosti n je sestavljen iz n-terice $X_1,\cdots X_n$ neodvisnih slučajnih spremenljivk, ki so vse porazdeljene enako kot preučevana spremenljiva X.
+Slučajni vzorec velikosti n je sestavljen iz n-terice $X_1,\cdots X_n$ neodvisnih slučajnih spremenljivk, ki so vse porazdeljene enako kot preučevana spremenljivka X.
 \\
 \\
-Privzemimo, da je $X\sim \mathcal{N}(\mu, \sigma)$. To v praksi pogosto privzamemo za zvezne slučajne spremenljivke, ki so dovolj simetrične in dovolj 'lepe' koncentrirane okrog $\mu$. Spoimnimo se, da za standardno cenilko $\mu$ velja $\bar{X} = \frac{X_1 + \cdots X_n}{n}\sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})$
+Privzemimo, da je $X\sim \mathcal{N}(\mu, \sigma)$. To v praksi pogosto privzamemo za zvezne slučajne spremenljivke, ki so dovolj simetrične in dovolj 'lepe' koncentrirane okrog $\mu$. Spomnimo se, da za standardno cenilko $\mu$ velja $\bar{X} = \frac{X_1 + \cdots X_n}{n}\sim \mathcal{N}(\mu, \frac{\sigma}{\sqrt{n}})$
 
 \subsubsection{Z znano disperzijo}
 Privzamimo, da standardni odklon poznamo. (Sicer zelo nepraktično).
 
-Izberimo tak pra realnih števil $a < b$, da zanj velja:
+Izberimo tak par realnih števil $a < b$, da zanj velja:
 $$ P(\mathcal{N}(0,1) \in [a,b]) = \beta$$
 kjer je $\beta \in (0,1)$ (blizu 1) vnaprej predpisana stopnja zaupanja.
 \\
@@ -485,7 +484,7 @@ $$b = -a = t_{n-1,(1-\beta)/2} = F^{-1}_{t_{n-1}}\left(\frac{1+\beta}{2}\right)$
 	$$Y_1 + Y_2 \sim \Gamma(\alpha_1+\alpha_2,\beta)$$
 	Posledično: $\chi_k^2 + \chi_l^2 \sim X_{k+l}^2$ ($\chi_k^2$ in $\chi_l^2$ sta neodvisni)
 \end{dokaz}
-Prva porazdelitev sledi neposredno iz prejšne trditve, pri drugi pa odštejemo $\bar{X} = \frac{1}{n}{(X_1 + X_2 + \ldots + X_n}$ povzroči "vez" v sistemu z n prostostnimi stopnjami, ker zmanjša število prostostnih stopenj za 1.
+Prva porazdelitev sledi neposredno iz prejšne trditve, pri drugi pa odštejemo $\bar{X} = \frac{1}{n}{(X_1 + X_2 + \ldots + X_n}$, povzroči "vez" v sistemu z n prostostnimi stopnjami, ker zmanjša število prostostnih stopenj za 1.
 
 \begin{Opomba}
 	'Sistem' s n prostosntnimi stopnjami ima n količin, ki se lahko spreminjajo neodvisno (prosto) druga od druge.
@@ -506,7 +505,7 @@ Tako dobimo  enakorepi interval zaupanja za $\sigma^2$ pri znanem $\mu$:
 $$\left[\frac{1}{F_{\chi_n^2}^{-1}\left(\frac{1+\beta}{2}\right)}\sum_{i = 1}^{n}{(X_i - \mu)^2}, \frac{1}{F_{\chi_n^2}^{-1}\left(\frac{1-\beta}{2}\right)}\sum_{i = 1}^{n}{(X_i - \mu)^2}\right]$$
 
 \begin{Opomba}
-	Ta interval zaupanja ni najkrajši (v pričakovani vrednosti dolžine intrevala). Najkrajši interval lahko dobimo s numeričnim račuananjem zahtevnih integralskih enačb. V praski še dandanes uporabljamo enakorepei interval.
+	Ta interval zaupanja ni najkrajši (v pričakovani vrednosti dolžine intrevala). Najkrajši interval lahko dobimo s numeričnim račuananjem zahtevnih integralskih enačb. V praski še dandanes uporabljamo enakorepni interval.
 \end{Opomba}
 \subsubsection{Z neznano pričakovano vrednostjo $\mu$}
 Privzemimo, da so $X_1, X_2, \ldots , X_n$ neodvisne replikacije preučevanega slučajnega eksperimenta. $X\sim \mathcal{N}(\mu,\sigma)$. Velja:
@@ -525,7 +524,7 @@ $$\left[\frac{1}{F_{\chi_n^2}^{-1}\left(\frac{1+\beta}{2}\right)}\sum_{i = 1}^{n
 \end{Opomba}
 \section{Preizkuševanje domnev}
 \subsection{Uvod}
-Spomnimo se na 'problem' zaposlenega v podpori, ki nudi storitve strankam. Predpostavljamo, da slučajno izberemo storitev opravi zadovoljivo z verjetnostjo $p$. Tej verjetnosti pravimo 'notranji' oziroma dejanski $p$.
+Spomnimo se na 'problem' zaposlenega v podpori, ki nudi storitve strankam. Predpostavljamo, da slučajno izberemo storitev, ki jo opravimo zadovoljivo z verjetnostjo $p$. Tej verjetnosti pravimo 'notranji' oziroma dejanski $p$.
 Direktor se odloča za povišico. Pravi, da je povišica smiselna, če je $p$ zaposlenega večji od $0.7$.
 \begin{Opomba}
 	To bi lahko rešili z intervali zaupanja. Na primer: zahtevali bi, da je spodnja meja intervala zaupanja enaka 0.7.
@@ -542,8 +541,8 @@ Jasno je, da imamo samo dve opciji:
 	ne podpremo $p > 0.7$ (podpremo $p\le 0.7$)
 \end{enumerate}
 
-Preizkus domneve (oz. test hipoteze) $p\le 0.7$ nasporti domnevi $p>0.7$ temelji na \textbf{odločitvenem pravilu}, ki pove, kako se bomo odločili glede na rezultat n neodvisnih ponovitev poskusa.
-V našem primeru bomo izbrali $n$ storitev, $k$ od njih bo ocenjenih zadovoljivo. Narediti moramo odločitevno pravilo. Recimo, da je $n=20$.
+Preizkus domneve (oz. test hipoteze) $p\le 0.7$ nasproti domnevi $p>0.7$ temelji na \textbf{odločitvenem pravilu}, ki pove, kako se bomo odločili glede na rezultat n neodvisnih ponovitev poskusa.
+V našem primeru bomo izbrali $n$ storitev, $k$ od njih bo ocenjena zadovoljivo. Narediti moramo odločitveno pravilo. Recimo, da je $n=20$.
 \\
 Vidimo, da je smiselno, da je naše odločitveno pravilo naslednje oblike:
 \[
@@ -569,7 +568,7 @@ Pri odločitvi bomo naredili napako. Kakšne so možne napake?
 \end{table}
 
 Izračunajmo verjetnost, da podpremo $p>0.7$, pri pogoju, da je v resnici $p\le 0.7$. $$P(k> C | \textnormal{dejanski}\quad p\le 0.7)$$
-Vrednost napake ne število, ampak funkcija dejanskega p, za katerega privzamemo, da je $p\le 0.7$. Če želimo, da je ta verjetnost manjša ali enaka $0.1$ za vse $p\le 0.7$ pri $n=20$ bi izbrali $C=17$. Se pravi, odločitev $p>0.7$ bomo podprli le za $k=18,19,20$.
+Vrednost napake na število, ampak funkcija dejanskega p, za katerega privzamemo, da je $p\le 0.7$. Če želimo, da je ta verjetnost manjša ali enaka $0.1$ za vse $p\le 0.7$ pri $n=20$ bi izbrali $C=17$. Se pravi, odločitev $p>0.7$ bomo podprli le za $k=18,19,20$.
 \\
 \\
 Kaj pa 'druga napaka' (v prvi vrstici)?
@@ -582,10 +581,10 @@ To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
 	\textbf{Domneva} ali hipoteza je izjava o porazdelitvi preučevane slučajne spremenljivke. (V uvodnem primeru $X\sim Bin(1,p)$; $p$ je lasnost porazdelitve)
 	\\
 	\\
-	Nasporti ji stoji tako imenovana \textbf{alternativna domneva}, ki jo v osnovnem primeru negacija prvotne domneve.
+	Nasproti ji stoji tako imenovana \textbf{alternativna domneva}, ki jo v osnovnem primeru negacija prvotne domneve.
 	\\
 	\\
-	Preizkus ali test domneve je odločitveno pravilo, po katerem glede na vse možne rezultate n neodvisnih ponovitev eksperimenta $X$ odločimo ali potrdimo hipotezo $H$ ali njeno alternativo $A$.
+	Preizkus ali test domneve je odločitveno pravilo, po katerem glede na vse možne rezultate, n neodvisnih ponovitev eksperimenta $X$, odločimo ali potrdimo hipotezo $H$ ali njeno alternativo $A$.
 \end{Definicija}
 	Pri odločitvi lahko naredimo napako. Ustrezni diagram:
 	\begin{table}[h]
@@ -600,10 +599,10 @@ To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
 		\end{tabular}
 	\end{table}
 	
-	Obeh napak hkrati ne moremo minimizirati. V najboljšem primeru sta si napaki komplementarni. Eno od njiju si izberemo kot pomembno in jo zmanjšujemo pod vnaprej predpisano raven $\alpha \in (0,1)$, ki ji pravimo \textbf{stopnja zančilnosti}.
+	Obeh napak hkrati ne moremo minimalizirati. V najboljšem primeru sta si napaki komplementarni. Eno od njiju si izberemo kot pomembno in jo zmanjšujemo pod vnaprej predpisano raven $\alpha \in (0,1)$, ki ji pravimo \textbf{stopnja značilnosti}.
 	\\
 	\\
-	Po potrebi vlogi H in A zamenjamo, tako da je napaka katere verjetnost $< \alpha$ tista, pri kateri podpremo A, čeprav drži H. Tej napaki pravimo \textbf{napak prve vrste}. Napaki, ki jo storimo, če pa podpremo H, čeprav drži A pa pravimo \textbf{napaka druge vrste}.
+	Po potrebi vlogi H in A zamenjamo, tako da je napaka, katere verjetnost $< \alpha$ tista, pri kateri podpremo A, čeprav drži H. Tej napaki pravimo \textbf{napaka prve vrste}. Napaki, ki jo storimo, če pa podpremo H, čeprav drži A, pa pravimo \textbf{napaka druge vrste}.
 	\\
 	\\
 	Statistični test (preizkus) domneve H proti domnevi A je odločitveno pravilo oblike:
@@ -616,7 +615,7 @@ To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
 	Paziti moramo, saj gre v naprej določeno velikost vzorca $n$.
 \pagebreak
 
-	V zgledu z zaposlenim v podpori smo imeli $X\sim Bin(1,p)$ ter domnevi $H: p\le 0.7$ in $A: p>0.7$. Test je oblike:
+	Pri zgledu z zaposlenim v podpori smo imeli $X\sim Bin(1,p)$ ter domnevi $H: p\le 0.7$ in $A: p>0.7$. Test je oblike:
 		\[
 	\begin{cases}
 	\textnormal{zavrnemo H} & \textnormal{če je } X_1 + X_2 +\ldots + X_n > C\\
@@ -631,7 +630,7 @@ To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
 			Naj bo $T: \mathbb{R}^n \to \mathbb{R}$ (ali splošneje $\mathbb{R}^n \to \mathbb{R}^m)$ primerna funkcija. Tedaj je $T$ testna statistika za test dane domneve H proti alternativi A, če se v testu odločimo (izključno) glede na vrednosti $T(X_1, \ldots, X_n)$.
 	\end{Trditev}
 	
-	Spomnimo se, da je napak prve vrste napaka, ki jo storimo, če zavzamemo H (podpremo A) kljub temu da H drži. Test ima značilnost $\alpha$, če je verjetnost napake prve vrste navzgor omejena z $\alpha$.
+	Spomnimo se, da je napaka prve vrste napaka, ki jo storimo, če zavzamemo H (podpremo A) kljub temu da H drži. Test ima značilnost $\alpha$, če je verjetnost napake prve vrste navzgor omejena z $\alpha$.
 	\\
 	Napaka druge vrste je napaka, ki jo storimo če zavzamemo H (podpremo H), kljub temu da H ne drži (drži A).
 	\begin{Opomba}
@@ -640,7 +639,7 @@ To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
 	\begin{Opomba}
 		Napako druge vrste lahko naredimo le, če drži A.
 	\end{Opomba}
-	Če ima naš test zančilnosti $\alpha$ (kjer je $\alpha$ blizu 0), potem udobno zavrnemo domnevo H (če so izpolnjeni pogoji), ker je verjetnost da se to po nesreči zgodi, majhna.
+	Če ima naš test zančilnosti $\alpha$ (kjer je $\alpha$ blizu 0), potem udobno zavrnemo domnevo H (če so izpolnjeni pogoji), ker je verjetnost, da se to po nesreči zgodi, majhna.
 	\\
 	\\
 	Ne rečemo pa radi, da H podpremo (če so izpolnjene predpostavke), ker je verjentost napake druge vrste lahko velika.
@@ -903,5 +902,47 @@ To je funkcija dejanskega p, za katerega privzamemo $p> 0.7$.
 	\end{framed}
 	\end{enumerate}
 \subsection{Dve normalni populaciji}
+	Testiramo razlike med pričakovanima vrednostma.
+	\begin{enumerate}
+		\item \textbf{Populaciji $\mathcal{N}(\mu_1,\sigma_1)$ ter $\mathcal{N}(\mu_2,\sigma_2)$: odklona poznamo}
+		\\
+		Možne ničelne hipoteze so:
+		$$\mu_1 - \mu_2 \le D_0 \quad \mu_1 - \mu_2 \ge D_0 \quad \mu_1 - \mu_2 = D_0$$
+		Testna statistika za neodvisna vzroca velikosti $n_1$, $n_2$:
+		$$T = \frac{\bar{X_1} - \bar{X_2} - D_0}{\sqrt{\sigma_1^2/n_1 + \sigma_2^2/n_2}}$$
+		Porazdelitev testne statistike pri pogoju $\mu_1 - \mu_2 = D_0$:
+		\\
+		Standardna normalna porazdelitev.
+		\begin{framed}
+		\begin{itemize}
+			\item  $H_0 :\mu_1 - \mu_2 \le D_0$ zavrnemo. če $T> z_\alpha = \phi^{-1}(1-\alpha)$
+			\item
+			$H_0: \mu_1 - \mu_2 \ge D_0$ zavrnemo, če $T< -z_\alpha =\phi^{-1}{\alpha}$   
+			\item
+			$H_0: \mu_1 -\mu_2 = D_0$ zavrnemo, če $|T| > z_{\frac{\alpha}{2}}$
+		\end{itemize}
+		\end{framed}
+\pagebreak
+
+		\item \textbf{Populaciji $\mathcal{N}(\mu_1,\sigma)$ ter $\mathcal{N}(\mu_2,\sigma)$: odklona nepoznamo,a enaka}
+		\\	
+		Možne ničelne hipoteze so:
+		$$\mu_1 - \mu_2 \le D_0 \quad \mu_1 - \mu_2 \ge D_0 \quad \mu_1 - \mu_2 = D_0$$
+		Testna statistika za neodvisna vzroca velikosti $n_1$, $n_2$:
+		$$T = \frac{\frac{(\bar{X_1} - \bar{X_2} - D_0)}{\sqrt{1/n_1 + 1/n_2}}}{\left((n_1 -1)S_1^2 +(n_2 - 1)S_2^2\right)/(n_1 +n_2 -2)}$$
+		Porazdelitev testne statistike pri pogoju $\mu_1 - \mu_2 = D_0$:
+		\\
+		Studentova t-porazdelitev z $n_1+n_2 -2$ prostostnimi stopnjami.	
+		\begin{framed}
+			\begin{itemize}
+				\item  $H_0 :\mu_1 - \mu_2 \le D_0$ zavrnemo. če $T> t_{n_1+n_2 -2,\alpha}$
+				\item
+				$H_0: \mu_1 - \mu_2 \ge D_0$ zavrnemo, če $T< -t_{n_1+n_2 -2,\alpha}$   
+				\item
+				$H_0: \mu_1 -\mu_2 = D_0$ zavrnemo, če $|T| > t_{n_1+n_2-2, \frac{\alpha}{2}}$
+			\end{itemize}
+		\end{framed}
+\end{enumerate}
+	
 
 \end{document}
